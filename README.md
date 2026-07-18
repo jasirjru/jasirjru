@@ -1,110 +1,100 @@
-<div align="center">
+# 👋 Hi, I'm Jasir J
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00c9ff,100:92fe9d&height=200&section=header&text=Jasir%20J&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Web%20Developer%20%7C%20Building%20FitWithU&descAlignY=55" width="100%"/>
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:6C63FF,50:00C9FF,100:92FE9D&text=Jasir%20J&fontSize=60&fontColor=ffffff&animation=twinkling&desc=Software%20Developer%20|%20Full%20Stack%20|%20Flutter%20|%20Unity&descAlignY=58"/>
+</p>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=00C9FF&center=true&vCenter=true&width=600&lines=Hi+there%2C+I'm+Jasir+%F0%9F%91%8B;Web+Developer+in+Progress;Building+FitWithU+Gym+Website;HTML+%7C+CSS+%7C+JS+%7C+Node.js+%7C+MongoDB)](https://git.io/typing-svg)
+<p align="center">
 
-<img src="https://komarev.com/ghpvc/?username=jasirjru&color=00c9ff&style=flat-square&label=Profile+Views" alt="profile views"/>
-<img src="https://img.shields.io/github/followers/jasirjru?label=Followers&style=flat-square&color=00c9ff" alt="followers"/>
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=24&pause=1000&color=00C9FF&center=true&vCenter=true&width=800&lines=Software+Developer;Full+Stack+Web+Developer;Flutter+App+Developer;Unity+Developer;Building+FitWithJu;Always+Learning+New+Technologies)](https://git.io/typing-svg)
 
-</div>
+</p>
 
----
-
-### 🚀 About Me
-
-- 🌱 Currently building **FitWithU** — a gym website for a fitness gym in Malappuram, Kerala
-- 💻 Learning backend development (Express, Node.js, MongoDB)
-- 🛠️ Frontend deployed on Netlify, backend on Render
-- 📫 Reach me at **jasirlvl@gmail.com**
+<p align="center">
+<img src="https://komarev.com/ghpvc/?username=jasirjru&style=for-the-badge&color=00c9ff"/>
+<img src="https://img.shields.io/github/followers/jasirjru?style=for-the-badge"/>
+</p>
 
 ---
 
-### 🏋️ Featured Project — FitWithU
+## 💫 About Me
 
-<div align="center">
+- 💻 Software Developer
+- 🌐 Full Stack Web Developer
+- 📱 Flutter App Developer
+- 🎮 Unity Developer
+- 🏋️ Building **FitWithJu**
+- 🌱 Learning Python, Flutter, Unity and Backend Development
+- 📍 Kerala, India
+- 📫 **jasirlvl@gmail.com**
 
-<!-- Upload Screenshot_2026-07-18_162845.png to this repo under assets/, then this path will work -->
-<img src="https://raw.githubusercontent.com/jasirjru/jasirjru/main/assets/fitwithu-preview.png" width="80%" alt="FitWithU preview"/>
-
-**A full-stack gym website** — landing page, pricing, trainer profiles, fitness calculator, and a contact/newsletter system backed by MongoDB.
-
-[![Live Site](https://img.shields.io/badge/Live%20Site-fitwithu0.netlify.app-00c9ff?style=for-the-badge&logo=netlify&logoColor=white)](https://fitwithu0.netlify.app/)
-[![Repo](https://img.shields.io/badge/Source%20Code-View%20Repo-333?style=for-the-badge&logo=github)](https://github.com/jasirjru/FitWithJu)
-
-**Stack:** HTML · CSS · JS · Node.js · Express · MongoDB Atlas
-
-</div>
-
----
-
-### 🧰 Tech Stack
-
-<div align="center">
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS%20Code-0078D4?style=for-the-badge&logo=visualstudiocode&logoColor=white)
-
-</div>
+<p align="center">
+<img width="500" src="https://user-images.githubusercontent.com/74038190/212744275-2d86f42d-4db8-4f79-8b4e-58b69d6d72b0.gif">
+</p>
 
 ---
 
-### 🏆 Trophies
+## 🚀 Featured Project
 
-<div align="center">
+### 🏋️ FitWithJu
 
-<img src="https://github-profile-trophy.vercel.app/?username=jasirjru&theme=algolia&no-frame=true&row=1&column=7"/>
+A modern full-stack gym website with responsive UI, pricing, trainer profiles, fitness calculator and contact system.
 
-</div>
-
----
-
-### 📊 GitHub Stats
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=jasirjru&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" width="49%"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=jasirjru&theme=tokyonight&hide_border=true" width="49%"/>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jasirjru&layout=compact&theme=tokyonight&hide_border=true" width="50%"/>
-
-</div>
+- 🌍 Live: https://fitwithu0.netlify.app
+- 💻 Repo: https://github.com/jasirjru/FitWithJu
 
 ---
 
-### 📅 3D Contribution Calendar
+## 🛠️ Tech Stack
 
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/jasirjru/jasirjru/main/profile-3d-contrib/profile-night-rainbow.svg" width="100%"/>
-
-</div>
+<p align="center">
+<img src="https://skillicons.dev/icons?i=html,css,js,python,nodejs,express,mongodb,firebase,flutter,dart,unity,cs,git,github,vscode&perline=5"/>
+</p>
 
 ---
 
-### 🐍 Contribution Snake
+## 📊 GitHub Stats
 
-<div align="center">
+<p align="center">
+<img width="49%" src="https://github-readme-stats.vercel.app/api?username=jasirjru&show_icons=true&theme=tokyonight&hide_border=true"/>
+<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=jasirjru&theme=tokyonight&hide_border=true"/>
+</p>
 
-<img src="https://raw.githubusercontent.com/jasirjru/jasirjru/output/github-contribution-grid-snake.svg" width="100%"/>
-
-</div>
+<p align="center">
+<img width="50%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=jasirjru&layout=compact&theme=tokyonight&hide_border=true"/>
+</p>
 
 ---
 
-### 🤝 Connect With Me
+## 📈 Activity Graph
 
-<div align="center">
+[![graph](https://github-readme-activity-graph.vercel.app/graph?username=jasirjru&theme=tokyo-night)](https://github.com/jasirjru)
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR-LINKEDIN)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jasirlvl@gmail.com)
+---
 
-</div>
+## 🏆 Trophies
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:92fe9d,100:00c9ff&height=100&section=footer" width="100%"/>
+<p align="center">
+<img src="https://github-profile-trophy.vercel.app/?username=jasirjru&theme=algolia&no-frame=true&column=7"/>
+</p>
+
+---
+
+## 🐍 Contribution Snake
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/jasirjru/jasirjru/output/github-contribution-grid-snake.svg"/>
+</p>
+
+---
+
+## 🌐 Connect
+
+<p align="center">
+<a href="https://www.linkedin.com/in/jasir-abdul-hameed-762388338/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+<a href="mailto:jasirlvl@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+</p>
+
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&section=footer&height=120&color=0:92FE9D,100:00C9FF"/>
+</p>

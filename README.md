@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Jasir Jru
 
 <p align="center">
-</p>br>
+</p>
 <img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=0:6C63FF,50:00C9FF,100:92FE9D&text=Jasir%20J&fontSize=60&fontColor=ffffff&animation=twinkling&desc=Software%20Developer%20|%20Full%20Stack%20|%20Flutter%20|%20Unity&descAlignY=58"/>
 </p>
 

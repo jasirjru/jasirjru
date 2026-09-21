@@ -1,174 +1,342 @@
-<!-- ========================================================= -->
-<!--                 JASIR J — GITHUB PROFILE                  -->
-<!-- ========================================================= -->
+<!-- =============================================== -->
+<!--            Jasir Jru — GITHUB PROFILE             -->
+<!-- =============================================== -->
 
 <div align="center">
 
-<img src="./assets/hero-banner.png" alt="Jasir J Hero Banner" width="100%" />
+<img src="./assets/hero-banner.png"
+     alt="Jasir Abdul Hameed"
+     width="760"/>
+
+<br>
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=2300&pause=700&color=38BDF8&center=true&vCenter=true&width=760&lines=Jasir+Abdul+Hameed;AI+%2F+ML+Engineer;LLM+%26+Intelligent+Systems+Builder;Full-Stack+Developer;Python+%E2%80%A2+C%2B%2B+%E2%80%A2+JavaScript+%E2%80%A2+React;Building+AI+%2B+Web+%2B+Interactive+Systems"
+     alt="Typing Animation"/>
 
 <br><br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=22&pause=1000&color=00F5FF&center=true&vCenter=true&width=900&lines=Hi%2C+I'm+Jasir+J+%F0%9F%91%8B;AI+%2F+ML+Engineer;LLM+%26+Intelligent+Systems+Builder;Full-Stack+Developer;CSE+Engineer+%7C+Python+%7C+C%2B%2B+%7C+JavaScript;Building+AI%2C+Web%2C+and+Interactive+3D+Experiences" alt="Typing SVG" />
+<img src="./assets/profile-card.png"
+     alt="Jasir J Profile"
+     width="230"/>
 
 <br><br>
 
-<img src="./assets/profile-card.png" alt="Jasir Profile Card" width="420" />
+<img src="https://komarev.com/ghpvc/?username=jasirjru&style=for-the-badge&color=0284c7&label=PROFILE+VIEWS"/>
 
-<br><br>
+<img src="https://img.shields.io/badge/AI%20%2F%20ML-ENGINEER-0f172a?style=for-the-badge&logo=openai&logoColor=38bdf8"/>
 
-<img src="https://komarev.com/ghpvc/?username=jasirjru&style=for-the-badge&color=0ea5e9&label=PROFILE+VIEWS" alt="Profile Views" />
-<img src="https://img.shields.io/badge/ROLE-AI%20%2F%20ML%20Engineer-111827?style=for-the-badge&logo=OpenAI&logoColor=white" />
-<img src="https://img.shields.io/badge/FOCUS-LLM%20%7C%20Web%20%7C%20Systems-0f172a?style=for-the-badge&logo=codefactor&logoColor=22d3ee" />
-<img src="https://img.shields.io/badge/DEGREE-CSE-1e293b?style=for-the-badge&logo=google-scholar&logoColor=38bdf8" />
+<img src="https://img.shields.io/badge/CSE-ENGINEER-0f172a?style=for-the-badge&logo=googlescholar&logoColor=22d3ee"/>
 
 <br><br>
 
 <a href="https://www.linkedin.com/in/jasir-abdul-hameed-762388338">
-  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+<img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
+
 <a href="https://huggingface.co/jasirjru">
-  <img src="https://img.shields.io/badge/HuggingFace-FFCC4D?style=for-the-badge&logo=huggingface&logoColor=black" />
+<img src="https://img.shields.io/badge/HuggingFace-Models-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black"/>
 </a>
-<a href="https://github.com/jasirjru">
-  <img src="https://img.shields.io/badge/GitHub-111111?style=for-the-badge&logo=github&logoColor=white" />
-</a>
+
 <a href="mailto:jrunull@gmail.com">
-  <img src="https://img.shields.io/badge/Email-jrunull%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
+<img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
 </a>
 
 </div>
 
 ---
 
-## <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" width="28"> About Me
+# `> SYSTEM.IDENTITY`
 
-```txt
-AI / ML Engineer
-LLM-focused builder
-Full-stack developer
-CSE background
+```text
+NAME        : Jasir Abdul Hameed
+ROLE        : AI / ML Engineer
+FIELD       : Computer Science Engineering
+PRIMARY     : AI • ML • LLM Engineering
+SECONDARY   : Full-Stack Development
+EXPLORING   : Unreal Engine • Interactive Systems
+STATUS      : Building
+```
 
-I build projects at the intersection of AI/ML, LLMs, web applications, and interactive systems.
-My current focus is on creating:
+I focus on engineering practical systems around **Machine Learning, Artificial Intelligence, LLMs and modern web technologies**.
 
-intelligent AI/ML applications
-LLM-powered tools and workflows
-scalable backend systems
-modern web experiences
-Unreal / 3D interactive development
-<img src="https://media.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="28"> Current Focus
-AI / ML Engineering
-LLM Apps & Fine-Tuning
-Full-Stack Development
-FastAPI / Node.js APIs
-Interactive 3D / Unreal Workflows
-Production-ready project building
-<img src="https://media.giphy.com/media/L8K62iTDkzGX6/giphy.gif" width="28"> Tech Stack & Arsenal
+My work combines model development, backend engineering, frontend development and experimentation with interactive systems.
+
+---
+
+# `> CORE.TECHNOLOGY`
+
 <div align="center">
-AI / ML / LLM
-<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow" /> <br> <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white" /> <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" /> <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" /> <img src="https://img.shields.io/badge/Hugging%20Face-FFCC4D?style=for-the-badge&logo=huggingface&logoColor=black" />
+
+### AI / MACHINE LEARNING
+
+<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow" />
+
+<br>
+
+<img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" />
+<img src="https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
+<img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white" />
+<img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black" />
 
 <br><br>
 
-Backend / APIs
-<img src="https://skillicons.dev/icons?i=nodejs,express,fastapi" /> <br> <img src="https://img.shields.io/badge/REST%20APIs-0f172a?style=for-the-badge&logo=fastapi&logoColor=00f0ff" />
+### FULL-STACK DEVELOPMENT
+
+<img src="https://skillicons.dev/icons?i=js,react,nodejs,express,fastapi,html,css" />
 
 <br><br>
 
-Frontend / Web
-<img src="https://skillicons.dev/icons?i=html,css,js,react" />
+### DATABASES
+
+<img src="https://skillicons.dev/icons?i=postgres,mongodb,firebase" />
 
 <br><br>
 
-Databases / Cloud / Tools
-<img src="https://skillicons.dev/icons?i=postgres,mongodb,firebase,docker,git,github,vscode" />
+### ENGINEERING / TOOLS
 
-<br><br>
+<img src="https://skillicons.dev/icons?i=cpp,docker,git,github,unreal,vscode" />
 
-Game / Systems / Engineering
-<img src="https://skillicons.dev/icons?i=cpp,unreal" /> </div>
-<img src="https://media.giphy.com/media/f3iwJFOVOwuy7K6FFw/giphy.gif" width="28"> Core Strengths
-<div align="center">
-Area	What I Build
-AI / ML	ML models, intelligent systems, applied AI workflows
-LLM	fine-tuning ideas, LLM pipelines, domain-focused AI tools
-Backend	APIs, logic layers, data-driven systems
-Frontend	modern, clean, responsive UI experiences
-Full Stack	end-to-end application development
-Engineering	production thinking, system building, iteration
 </div>
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZG9qM2NrbDNqaDl1NnN2bTRpczB4MXQ4b3B4emNwY2MxdjVkYTVndyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/coxQHKASG60HrHtvkt/giphy.gif" width="28"> Featured Project Universe
-<div align="center"> <table> <tr> <td width="50%" valign="top">
-🧠 NEXUS
 
-Intelligent AI system / advanced project build
+---
 
-AI-focused architecture
-system design + product thinking
-scalable direction for future evolution
-<a href="https://github.com/jasirjru/NEXUS"> <img src="https://img.shields.io/badge/View%20Repository-111827?style=for-the-badge&logo=github&logoColor=white" /> </a> </td> <td width="50%" valign="top">
-🎯 DomainTune
+# `> ENGINEERING.FOCUS`
 
-Domain-adapted AI / ML system
+<table>
+<tr>
+<td width="50%" valign="top">
 
-domain-focused model work
-LLM / fine-tuning direction
-practical AI engineering workflow
-<a href="https://github.com/jasirjru/DomainTune-Qwen2.5-1.5B-Triage"> <img src="https://img.shields.io/badge/View%20Repository-111827?style=for-the-badge&logo=github&logoColor=white" /> </a> </td> </tr> <tr> <td width="50%" valign="top">
-📊 CustomerIQ
+### 🧠 AI / ML
 
-Predictive customer analytics
+- Machine-learning systems
+- Model experimentation
+- Data pipelines
+- Evaluation workflows
+- Applied AI systems
 
-customer insight workflows
-data-driven thinking
-ML + analytics direction
-<a href="https://github.com/jasirjru/CustomerIQ"> <img src="https://img.shields.io/badge/View%20Repository-111827?style=for-the-badge&logo=github&logoColor=white" /> </a> </td> <td width="50%" valign="top">
-🥤 drink_3d
+</td>
 
-3D web experience / interactive visual build
+<td width="50%" valign="top">
 
-creative frontend experiment
-3D visual presentation
-interactive design style
-<a href="https://github.com/jasirjru/drink_3d"> <img src="https://img.shields.io/badge/View%20Repository-111827?style=for-the-badge&logo=github&logoColor=white" /> </a> <a href="https://jasirjru.github.io/drink_3d/"> <img src="https://img.shields.io/badge/Live%20Demo-06b6d4?style=for-the-badge&logo=googlechrome&logoColor=white" /> </a> </td> </tr> </table> </div>
-<img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="28"> Private Development
-🎮 Trench-Hauler
+### 🤖 LLM ENGINEERING
 
-Private project — active development
+- LLM applications
+- Fine-tuning workflows
+- Domain adaptation
+- RAG systems
+- AI system architecture
 
-Unreal Engine
-C++
-systems & gameplay engineering
-iterative game development
-Status: Private / In Development
-Focus: Gameplay systems, AI, interaction, vehicle mechanics
-<img src="https://media.giphy.com/media/juua9i2c2fA0AIp2iq/giphy.gif" width="28"> GitHub Analytics
-<div align="center"> <img height="180em" src="https://github-readme-stats.vercel.app/api?username=jasirjru&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" /> <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=jasirjru&layout=compact&theme=tokyonight&hide_border=true" />
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### 🌐 WEB ENGINEERING
+
+- React applications
+- Node.js systems
+- FastAPI services
+- REST APIs
+- Modern frontend experiences
+
+</td>
+
+<td width="50%" valign="top">
+
+### ⚙️ SYSTEMS
+
+- C++ development
+- Docker workflows
+- Git / GitHub
+- Unreal Engine
+- Interactive applications
+
+</td>
+</tr>
+</table>
+
+---
+
+# `> PROJECT.UNIVERSE`
+
+## 🧠 NEXUS
+
+**AI-focused intelligent system**
+
+```text
+AI Architecture
+System Design
+Intelligent Workflows
+Product Engineering
+```
+
+<a href="https://github.com/jasirjru/NEXUS">
+<img src="https://img.shields.io/badge/OPEN-NEXUS-111827?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+---
+
+## 🎯 DomainTune
+
+**Domain-focused LLM adaptation and fine-tuning**
+
+```text
+LLM Fine-Tuning
+LoRA / QLoRA
+Evaluation
+Domain Adaptation
+Model Engineering
+```
+
+<a href="https://github.com/jasirjru/DomainTune-Qwen2.5-1.5B-Triage">
+<img src="https://img.shields.io/badge/OPEN-DOMAINTUNE-111827?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+<a href="https://huggingface.co/jasirjru">
+<img src="https://img.shields.io/badge/HUGGINGFACE-MODELS-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black"/>
+</a>
+
+---
+
+## 📊 CustomerIQ
+
+**Machine-learning driven customer intelligence**
+
+```text
+Customer Analytics
+Machine Learning
+Prediction
+Data Processing
+Business Intelligence
+```
+
+<a href="https://github.com/jasirjru/CustomerIQ">
+<img src="https://img.shields.io/badge/OPEN-CUSTOMERIQ-111827?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+---
+
+## 🥤 LUME / DRINK 3D
+
+**Interactive 3D-inspired web experience**
+
+A visual web experiment focused on animation, motion, interaction and modern frontend presentation.
+
+<a href="https://jasirjru.github.io/drink_3d/">
+<img src="https://img.shields.io/badge/OPEN-LIVE%20EXPERIENCE-06B6D4?style=for-the-badge&logo=googlechrome&logoColor=white"/>
+</a>
+
+<a href="https://github.com/jasirjru/drink_3d">
+<img src="https://img.shields.io/badge/VIEW-SOURCE-111827?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+---
+
+# `> PRIVATE.LAB`
+
+## 🎮 TRENCH-HAULER
+
+**Private • Active Development**
+
+```text
+ENGINE      : Unreal Engine 5
+LANGUAGE    : C++
+TYPE        : Co-op Subterranean Survival
+FOCUS       : Gameplay Systems
+              Vehicle Systems
+              Interaction
+              AI
+              Physics
+```
+
+Repository remains private while development continues.
+
+---
+
+# `> GITHUB.TELEMETRY`
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=jasirjru&show_icons=true&theme=tokyonight&hide_border=true" height="165"/>
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jasirjru&layout=compact&theme=tokyonight&hide_border=true" height="165"/>
 
 <br><br>
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=jasirjru&theme=tokyonight&hide_border=true" /> </div>
-<img src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" width="28"> Contribution Activity
-<div align="center"> <img src="https://github-readme-activity-graph.vercel.app/graph?username=jasirjru&theme=tokyo-night&hide_border=true&area=true" width="100%" /> </div>
-<img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="28"> Contribution Snake
-<div align="center"> <img src="https://raw.githubusercontent.com/jasirjru/jasirjru/output/github-contribution-grid-snake-dark.svg" alt="snake animation" /> </div>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=jasirjru&theme=tokyonight&hide_border=true" width="500"/>
 
-If the snake does not appear immediately, wait a few minutes after pushing or enable GitHub Actions.
-
-<img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="28"> Engineering Identity
-<div align="center">
-Primary Identity:
-AI / ML Engineer
-
-Secondary Strengths:
-LLM Systems
-Full-Stack Development
-Backend Engineering
-Frontend UI Development
-Interactive 3D / Unreal Exploration
 </div>
-<img src="https://media.giphy.com/media/kH1DBkPNyZPOk0BxrM/giphy.gif" width="28"> Connect With Me
-<div align="center"> <a href="mailto:jrunull@gmail.com"> <img src="https://img.shields.io/badge/Email-jrunull%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /> </a> <a href="https://www.linkedin.com/in/jasir-abdul-hameed-762388338"> <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /> </a> <a href="https://huggingface.co/jasirjru"> <img src="https://img.shields.io/badge/HuggingFace-Profile-FFCC4D?style=for-the-badge&logo=huggingface&logoColor=black" /> </a> <a href="https://github.com/jasirjru"> <img src="https://img.shields.io/badge/GitHub-Profile-111827?style=for-the-badge&logo=github&logoColor=white" /> </a> </div>
+
+---
+
+# `> ACTIVITY.MAP`
+
 <div align="center">
-⚡ Building the future with AI, ML, LLMs, Web, and Engineering
-<img src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:0f172a,50:0ea5e9,100:22d3ee&section=footer&text=Thanks%20for%20visiting!&fontColor=ffffff&fontSize=28&animation=fadeIn" /> </div> ```
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=jasirjru&theme=tokyo-night&hide_border=true&area=true" width="760"/>
+
+</div>
+
+---
+
+# `> CONTRIBUTION.SNAKE`
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/jasirjru/jasirjru/output/github-contribution-grid-snake-dark.svg"
+     width="760"
+     alt="Contribution Snake"/>
+
+</div>
+
+---
+
+# `> MAIN.STACK`
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=python,cpp,js,react,nodejs,fastapi,pytorch,tensorflow,postgres,mongodb,docker,git,github,unreal"/>
+
+</div>
+
+---
+
+# `> CONNECT`
+
+<div align="center">
+
+### Jasir Abdul Hameed
+
+**AI / ML Engineer**
+
+AI • Machine Learning • LLMs • Full-Stack Development
+
+<br>
+
+<a href="https://github.com/jasirjru">
+<img src="https://img.shields.io/badge/GitHub-jasirjru-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+<a href="https://www.linkedin.com/in/jasir-abdul-hameed-762388338">
+<img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="https://huggingface.co/jasirjru">
+<img src="https://img.shields.io/badge/HuggingFace-jasirjru-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black"/>
+</a>
+
+<a href="mailto:jrunull@gmail.com">
+<img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+
+<br><br>
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=16&duration=2500&pause=900&color=22D3EE&center=true&vCenter=true&width=700&lines=BUILD+%E2%86%92+TEST+%E2%86%92+LEARN+%E2%86%92+IMPROVE;AI+%E2%80%A2+ML+%E2%80%A2+LLMs+%E2%80%A2+WEB+%E2%80%A2+SYSTEMS;Thanks+for+visiting+my+GitHub."/>
+
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&height=110&color=0:020617,50:0f172a,100:0369a1&section=footer"
+     width="100%"/>
+
+</div>

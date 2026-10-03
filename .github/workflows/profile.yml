@@ -22,7 +22,7 @@ jobs:
         run: python generate_profile.py
       - name: Commit changed SVGs
         run: |
-          git add -- dark_mode.svg light_mode.svg portrait.svg
+          git add -- dark_mode.svg light_mode.svg
           if git diff --cached --quiet; then
             echo "Profile SVGs are unchanged"
             exit 0

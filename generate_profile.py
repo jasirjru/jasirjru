@@ -127,10 +127,9 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         f'fill="{c["bg"]}" stroke="{c["border"]}" stroke-width="2"/>',
         f'<path d="M15 1H605Q619 1 619 15V44H1V15Q1 1 15 1Z" fill="{c["bar"]}"/>',
         f'<path d="M1 44H619" stroke="{c["border"]}"/>',
-        '<circle cx="24" cy="23" r="5" fill="#df7775"/>'
-        '<circle cx="42" cy="23" r="5" fill="#e3ad62"/>'
-        '<circle cx="60" cy="23" r="5" fill="#78b88f"/>',
-        text(92, 29, "profile / jasirjru", c["muted"], 13),
+        text(23, 29, ">", c["key"], 17, 700),
+        text(46, 29, "jasirjru / profile", c["muted"], 13),
+        text(518, 29, "AI / ML", c["accent"], 12, 700),
         '<g class="desktop">',
         text(230, 76, "jasirjru @ github", c["key"], 15, 700),
         text(230, 106, "Jasir Abdul Hameed", c["fg"], 22, 700),
@@ -211,11 +210,189 @@ def metric_block(c: dict[str, str], counts: tuple[int, int, int],
     return parts
 
 
+def panel_shell(theme: str, height: int, title: str) -> list[str]:
+    c = THEMES[theme]
+    return [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="620" '
+        f'height="{height}" viewBox="0 0 620 {height}" role="img">',
+        '<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}'
+        '.mobile{display:none}@media(max-width:480px){.desktop{display:none}'
+        '.mobile{display:inline}}'
+        '@keyframes cursor{50%{opacity:0}}.cursor{animation:cursor 1.2s steps(1,end) infinite}'
+        '@media(prefers-reduced-motion:reduce){.cursor{animation:none}}</style>',
+        f'<rect x="1" y="1" width="618" height="{height-2}" rx="10" '
+        f'fill="{c["bg"]}" stroke="{c["border"]}"/>',
+        f'<path d="M20 43H600" stroke="{c["rule"]}"/>',
+        text(22, 30, ">", c["key"], 16, 700),
+        text(43, 30, title, c["fg"], 15, 700),
+    ]
+
+
+def focus_svg(theme: str) -> str:
+    c = THEMES[theme]
+    parts = panel_shell(theme, 208, "CURRENTLY BUILDING")
+    parts.extend((
+        '<title>Currently building Jruva AI and GroundDesk</title>',
+        '<g class="desktop">',
+        text(26, 75, "JRUVA AI", c["key"], 20, 700),
+        text(26, 101, "hybrid RAG · grounded answers", c["fg"], 15),
+        text(326, 75, "GROUNDDESK", c["key"], 20, 700),
+        text(326, 101, "evaluation-first support RAG", c["fg"], 15),
+        f'<path d="M309 58V118" stroke="{c["rule"]}"/>',
+        f'<path d="M26 130H594" stroke="{c["rule"]}"/>',
+        text(26, 158, "RESEARCH", c["accent"], 13, 700),
+        text(126, 158, "LoRA / QLoRA · groundedness evaluation", c["muted"], 15),
+        text(26, 189, "active work / applied AI systems", c["muted"], 12),
+        '</g><g class="mobile">',
+        text(26, 73, "JRUVA AI", c["key"], 23, 700),
+        text(184, 73, "hybrid RAG", c["fg"], 20),
+        text(26, 106, "GROUNDDESK", c["key"], 23, 700),
+        text(224, 106, "support RAG + eval", c["fg"], 19),
+        f'<path d="M26 124H594" stroke="{c["rule"]}"/>',
+        text(26, 154, "RESEARCH", c["accent"], 19, 700),
+        text(170, 154, "LoRA / QLoRA", c["muted"], 20),
+        text(170, 181, "groundedness evaluation", c["muted"], 19),
+        '</g>',
+        f'<rect class="cursor" x="578" y="17" width="8" height="14" fill="{c["accent"]}"/>',
+        '</svg>\n',
+    ))
+    return "".join(parts)
+
+
+PROJECTS = (
+    ("domaintune", "DomainTune", "LoRA/QLoRA training for support-ticket triage.",
+     "Structured evaluation across model and data changes.", "PYTORCH  /  TRANSFORMERS  /  PEFT"),
+    ("customeriq", "CustomerIQ", "Churn-scoring API with strict input contracts.",
+     "Explicit model limitations and serving boundaries.", "SCIKIT-LEARN  /  FASTAPI  /  DOCKER"),
+    ("nexus", "NEXUS", "Evidence-grounded Ethereum intelligence.",
+     "Anomaly and risk models with an inspectable API.", "SCIKIT-LEARN  /  FASTAPI  /  REACT  /  SQLITE"),
+)
+
+
+def project_svg(theme: str, project: tuple[str, str, str, str, str]) -> str:
+    c = THEMES[theme]
+    slug, name, line1, line2, stack = project
+    mobile_lines = {
+        "domaintune": ("LoRA/QLoRA support-ticket triage.", "Structured model + data evaluation."),
+        "customeriq": ("Churn-scoring API with strict inputs.", "Clear model limits and serving rules."),
+        "nexus": ("Evidence-grounded Ethereum AI.", "Anomaly + risk models with an API."),
+    }
+    mobile_line1, mobile_line2 = mobile_lines[slug]
+    parts = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="145" '
+        'viewBox="0 0 620 145" role="img">',
+        f'<title>{escape(name)} — {escape(line1)} {escape(line2)}</title>',
+        '<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}</style>',
+        f'<rect x="1" y="1" width="618" height="143" rx="10" '
+        f'fill="{c["bg"]}" stroke="{c["border"]}"/>',
+        f'<path d="M22 48H598 M22 111H598" stroke="{c["rule"]}"/>',
+        '<style>.mobile{display:none}@media(max-width:480px){.desktop{display:none}'
+        '.mobile{display:inline}}</style>',
+        '<g class="desktop">',
+        text(25, 34, name, c["key"], 23, 700),
+        text(502, 32, "VIEW REPO ↗", c["accent"], 12, 700),
+        text(25, 73, line1, c["fg"], 17),
+        text(25, 99, line2, c["fg"], 16),
+        text(25, 132, stack, c["muted"], 12, 700),
+        '</g><g class="mobile">',
+        text(25, 35, name, c["key"], 26, 700),
+        text(485, 32, "VIEW REPO ↗", c["accent"], 16, 700),
+        text(25, 75, mobile_line1, c["fg"], 21),
+        text(25, 102, mobile_line2, c["fg"], 21),
+        text(25, 133, stack, c["muted"], 15, 700),
+        '</g>',
+        '</svg>\n',
+    ]
+    return "".join(parts)
+
+
+def stack_svg(theme: str) -> str:
+    c = THEMES[theme]
+    parts = panel_shell(theme, 304, "TECHNICAL STACK")
+    rows = (
+        ("AI / ML", "Python · PyTorch · scikit-learn · Hugging Face", 78),
+        ("LLM", "RAG · LoRA / QLoRA · evaluation", 124),
+        ("BUILD", "FastAPI · Node.js · Express · React", 170),
+        ("DATA", "Qdrant · SQLite", 216),
+        ("TOOLS", "Git · GitHub Actions · Ollama · Ruff", 262),
+    )
+    parts.append('<title>Technical stack across AI, LLMs, web, data, and tools</title>')
+    parts.append('<g class="desktop">')
+    for label, value, y in rows:
+        parts.extend((
+            text(27, y, label, c["key"], 15, 700),
+            text(155, y, value, c["fg"], 16),
+            f'<path d="M27 {y+16}H593" stroke="{c["rule"]}"/>',
+        ))
+    parts.append('</g><g class="mobile">')
+    mobile_rows = (
+        ("AI / ML", "Python · PyTorch · scikit-learn · HF", 72),
+        ("LLM", "RAG · LoRA / QLoRA · evaluation", 119),
+        ("BUILD", "FastAPI · Node.js · Express · React", 166),
+        ("DATA", "Qdrant · SQLite", 213),
+        ("TOOLS", "Git · Actions · Ollama · Ruff", 260),
+    )
+    for label, value, y in mobile_rows:
+        parts.extend((
+            text(27, y, label, c["key"], 17, 700),
+            text(160, y, value, c["fg"], 18),
+            f'<path d="M27 {y+16}H593" stroke="{c["rule"]}"/>',
+        ))
+    parts.extend(('</g>', '</svg>\n'))
+    return "".join(parts)
+
+
+def activity_svg(theme: str, counts: tuple[int, int, int]) -> str:
+    c = THEMES[theme]
+    repos, stars, followers = counts
+    parts = panel_shell(theme, 164, "GITHUB ACTIVITY")
+    parts.extend((
+        '<title>Live public GitHub metrics and contribution activity</title>',
+        '<g class="desktop">',
+        text(27, 89, str(repos), c["accent"], 31, 700),
+        text(221, 89, str(stars), c["accent"], 31, 700),
+        text(415, 89, str(followers), c["accent"], 31, 700),
+        text(27, 111, "PUBLIC REPOS", c["muted"], 13, 700),
+        text(221, 111, "OWNED STARS", c["muted"], 13, 700),
+        text(415, 111, "FOLLOWERS", c["muted"], 13, 700),
+        '</g><g class="mobile">',
+        text(27, 89, str(repos), c["accent"], 36, 700),
+        text(221, 89, str(stars), c["accent"], 36, 700),
+        text(415, 89, str(followers), c["accent"], 36, 700),
+        text(27, 113, "PUBLIC REPOS", c["muted"], 17, 700),
+        text(221, 113, "OWNED STARS", c["muted"], 17, 700),
+        text(415, 113, "FOLLOWERS", c["muted"], 17, 700),
+        '</g>',
+        f'<path d="M205 57V118 M399 57V118 M27 127H593" stroke="{c["rule"]}"/>',
+        text(27, 150, "source: GitHub public API", c["muted"], 12),
+        text(437, 150, "REFRESH / DAILY", c["key"], 12, 700),
+        '</svg>\n',
+    ))
+    return "".join(parts)
+
+
+def connect_svg(theme: str, label: str, width: int = 143) -> str:
+    c = THEMES[theme]
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="53" '
+        f'viewBox="0 0 {width} 53" role="img">',
+        f'<title>Connect on {escape(label)}</title>',
+        '<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}</style>',
+        f'<rect x="1" y="1" width="{width-2}" height="51" rx="8" '
+        f'fill="{c["bar"]}" stroke="{c["border"]}"/>',
+        text(16, 33, label, c["fg"], 15, 700),
+        text(width - 24, 33, "↗", c["key"], 18, 700),
+        '</svg>\n',
+    ]
+    return "".join(parts)
+
+
 def write_if_changed(name: str, content: str) -> bool:
     path = ROOT / name
     encoded = content.encode("utf-8")
     if path.exists() and path.read_bytes() == encoded:
         return False
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(encoded)
     return True
 
@@ -223,9 +400,25 @@ def write_if_changed(name: str, content: str) -> bool:
 def main() -> None:
     image_uri, width, height = portrait_data()
     counts = metrics()
-    changed = [name for name, theme in (("dark_mode.svg", "dark"),
-                                      ("light_mode.svg", "light"))
-               if write_if_changed(name, svg(theme, image_uri, width, height, counts))]
+    outputs = {}
+    for theme in ("dark", "light"):
+        outputs[f"{theme}_mode.svg"] = svg(theme, image_uri, width, height, counts)
+        outputs[f"assets/profile/focus_{theme}.svg"] = focus_svg(theme)
+        outputs[f"assets/profile/stack_{theme}.svg"] = stack_svg(theme)
+        outputs[f"assets/profile/activity_{theme}.svg"] = activity_svg(theme, counts)
+        for project in PROJECTS:
+            outputs[f"assets/profile/{project[0]}_{theme}.svg"] = project_svg(theme, project)
+        for label in ("GitHub", "LinkedIn", "Hugging Face", "Email"):
+            slug = label.lower().replace(" ", "_")
+            outputs[f"assets/profile/connect_{slug}_{theme}.svg"] = connect_svg(theme, label)
+        for slug, label, button_width in (
+            ("jruva", "JRUVA AI / LIVE", 181),
+            ("model", "MODEL / HUGGING FACE", 245),
+            ("repositories", "BROWSE REPOSITORIES", 226),
+            ("contributions", "VIEW CONTRIBUTIONS", 221),
+        ):
+            outputs[f"assets/profile/link_{slug}_{theme}.svg"] = connect_svg(theme, label, button_width)
+    changed = [name for name, content in outputs.items() if write_if_changed(name, content)]
     print(f"public repos={counts[0]}, owned repo stars={counts[1]}, followers={counts[2]}")
     print("updated: " + (", ".join(changed) if changed else "none"))
 

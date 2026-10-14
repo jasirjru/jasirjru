@@ -149,9 +149,9 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         ("AI/ML", "PyTorch · scikit-learn", 239),
         ("LLM", "RAG · LoRA / QLoRA", 295),
         ("Backend", "FastAPI · Node.js", 349),
-        ("Data", "Qdrant · SQLite", 384),
-        ("Tools", "Git · Ollama · Ruff", 419),
-        ("Focus", "RAG · production AI", 454),
+        ("Data", "Qdrant · PostgreSQL", 384),
+        ("Tools", "Git · Docker · Actions", 419),
+        ("Focus", "RAG · model evaluation", 454),
     )
     for key, value, y in desktop_rows:
         parts.extend((text(230, y, key, c["key"], 15, 700),
@@ -176,9 +176,9 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         ("AI/ML", "PyTorch · scikit-learn", 291),
         ("LLM", "RAG · LoRA / QLoRA", 354),
         ("Backend", "FastAPI · Node.js", 417),
-        ("Data", "Qdrant · SQLite", 448),
-        ("Tools", "Git · Ollama · Ruff", 479),
-        ("Focus", "RAG · production AI", 510),
+        ("Data", "Qdrant · PostgreSQL", 448),
+        ("Tools", "Git · Docker · Actions", 479),
+        ("Focus", "RAG · model evaluation", 510),
     )
     for key, value, y in mobile_rows:
         parts.extend((text(28, y, key, c["key"], 19, 700),
@@ -313,8 +313,8 @@ def stack_svg(theme: str) -> str:
         ("AI / ML", "Python · PyTorch · scikit-learn · Hugging Face", 78),
         ("LLM", "RAG · LoRA / QLoRA · evaluation", 124),
         ("BUILD", "FastAPI · Node.js · Express · React", 170),
-        ("DATA", "Qdrant · SQLite", 216),
-        ("TOOLS", "Git · GitHub Actions · Ollama · Ruff", 262),
+        ("DATA", "Qdrant · PostgreSQL", 216),
+        ("TOOLS", "Git · GitHub Actions · Docker · Ruff", 262),
     )
     parts.append('<title>Technical stack across AI, LLMs, web, data, and tools</title>')
     parts.append('<g class="desktop">')
@@ -329,8 +329,8 @@ def stack_svg(theme: str) -> str:
         ("AI / ML", "Python · PyTorch · scikit-learn · HF", 72),
         ("LLM", "RAG · LoRA / QLoRA · evaluation", 119),
         ("BUILD", "FastAPI · Node.js · Express · React", 166),
-        ("DATA", "Qdrant · SQLite", 213),
-        ("TOOLS", "Git · Actions · Ollama · Ruff", 260),
+        ("DATA", "Qdrant · PostgreSQL", 213),
+        ("TOOLS", "Git · Actions · Docker · Ruff", 260),
     )
     for label, value, y in mobile_rows:
         parts.extend((

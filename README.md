@@ -1,54 +1,41 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./dark_mode.svg">
-  <img src="./light_mode.svg" width="100%" alt="Jasir Abdul Hameed — Applied AI / ML Engineer in Kerala, India. Portrait, technical focus, and live public GitHub metrics.">
+  <img src="./light_mode.svg" width="100%" alt="Jasir Abdul Hameed, Applied AI / ML Engineer in Kerala, India.">
 </picture>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/focus_dark.svg">
-  <img src="./assets/profile/focus_light.svg" width="100%" alt="Currently building Jruva AI hybrid RAG and GroundDesk evaluation-first support RAG; researching LoRA, QLoRA, and groundedness evaluation.">
-</picture>
+### Applied AI engineer: I build LLM applications and ML services, then measure whether they work.
 
-<a href="https://www.jruva.in/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/link_jruva_dark.svg"><img src="./assets/profile/link_jruva_light.svg" width="181" alt="Explore Jruva AI live"></picture></a>
+B.Tech Computer Science, 2026 · Kerala, India · open to entry-level Applied AI, GenAI and ML engineering roles.
 
-### Featured AI/ML work
+[Portfolio](https://jasirjru-portfolio.vercel.app) · [LinkedIn](https://www.linkedin.com/in/jasirjru) · [Hugging Face](https://huggingface.co/jasirjru) · [Email](mailto:jasirlvl@gmail.com) · [Resume](https://jasirjru-portfolio.vercel.app/resume.pdf)
 
-**New:** [Jruva retrieval benchmark](https://github.com/jasirjru/jruva-retrieval-eval): dense vs BM25 vs reciprocal rank fusion, reproducible, with per-category results. [DomainTune evaluation](https://github.com/jasirjru/DomainTune#results): base vs fine-tuned on a 40-example gold set, with diagnosed failures.
+---
 
-<a href="https://github.com/jasirjru/DomainTune"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/domaintune_dark.svg"><img src="./assets/profile/domaintune_light.svg" width="100%" alt="DomainTune: LoRA and QLoRA training for support-ticket triage with an evaluation harness (results in progress). View its GitHub repository."></picture></a>
+### Featured work
 
-<a href="https://huggingface.co/jasirjru/DomainTune-Qwen2.5-1.5B-Triage"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/link_model_dark.svg"><img src="./assets/profile/link_model_light.svg" width="245" alt="Explore the DomainTune model on Hugging Face"></picture></a>
+| Project | What it is | Evidence |
+|---|---|---|
+| **[Jruva](https://www.jruva.in)**<br>[benchmark](https://github.com/jasirjru/jruva-retrieval-eval) | Public-beta document-QA assistant. FastAPI + Next.js, hybrid retrieval (BGE embeddings in Qdrant, BM25, reciprocal rank fusion) and multi-provider LLM failover. | Reproducible benchmark on 100 queries: dense MRR **0.91** vs BM25 **0.81**. Fusion did not beat dense overall and halved Hit@1 on ambiguous queries. |
+| **[CustomerIQ](https://github.com/jasirjru/CustomerIQ)**<br>[live demo](https://customeriq-qd2v.onrender.com) | Churn-scoring inference API. Strict Pydantic contracts, SHA-256 model-artifact verification and a model card. | CI runs 124 pytest tests, Playwright browser and axe accessibility checks, and a container vulnerability scan. Scores are documented as uncalibrated. |
+| **[DomainTune](https://github.com/jasirjru/DomainTune#results)**<br>[model](https://huggingface.co/jasirjru/DomainTune-Qwen2.5-1.5B-Triage) | QLoRA fine-tune of Qwen2.5-1.5B that turns support tickets into five-field JSON triage. | Valid JSON **22.5% → 92.5%** on a 40-example gold set; exact match still 0%. Diagnosed a missing stop token and majority-class collapse. |
+| **[NASA Space Apps 2024](https://www.spaceappschallenge.org/2024/find-a-team/darknova/)**<br>[site](https://github.com/jasirjru/dark_nova) | Website developer in six-member Team DarkNova (Galactic Games challenge). | Global Nominee and People's Choice. |
 
-<a href="https://github.com/jasirjru/CustomerIQ"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/customeriq_dark.svg"><img src="./assets/profile/customeriq_light.svg" width="100%" alt="CustomerIQ: a churn-scoring API with strict input contracts and explicit model limitations. View its GitHub repository."></picture></a>
+### How I work
 
-<a href="https://github.com/jasirjru/NEXUS"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/nexus_dark.svg"><img src="./assets/profile/nexus_light.svg" width="100%" alt="NEXUS: evidence-grounded Ethereum intelligence with anomaly and risk models. View its GitHub repository."></picture></a>
+- **Evidence first.** Every result above links to the data, scripts or tests behind it.
+- **Report what fails.** Negative results (fusion not helping, a fine-tune that never stops) are documented, with the next fix.
+- **Guardrails before features.** Input validation, artifact checks, CI, accessibility and security scans.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/stack_dark.svg">
-  <img src="./assets/profile/stack_light.svg" width="100%" alt="Technical stack: Python, PyTorch, scikit-learn, Hugging Face, RAG, LoRA, QLoRA, evaluation, FastAPI, Node.js, Express, React, Qdrant, SQLite, Git, GitHub Actions, Ollama, and Ruff.">
-</picture>
+### Next
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/activity_dark.svg">
-  <img src="./assets/profile/activity_light.svg" width="100%" alt="Public repositories, total stars across owned public repositories, and followers. Refreshed daily from GitHub's public API.">
-</picture>
+- Retrain DomainTune with the end-of-sequence fix and rebalanced labels, then rerun the gold-set evaluation.
+- Extend the Jruva benchmark with held-out queries that were not used for tuning.
 
-<p>
-  <a href="https://github.com/jasirjru?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/link_repositories_dark.svg"><img src="./assets/profile/link_repositories_light.svg" width="226" alt="Browse Jasir's public repositories"></picture></a>
-  <a href="https://github.com/jasirjru?tab=overview"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/link_contributions_dark.svg"><img src="./assets/profile/link_contributions_light.svg" width="221" alt="View Jasir's GitHub contributions"></picture></a>
-</p>
+### Stack
 
-### Contribution snake
+**AI and LLMs:** Python · PyTorch · Hugging Face Transformers, PEFT, TRL · QLoRA · scikit-learn · RAG · Qdrant · BM25 · retrieval and LLM evaluation<br>
+**Backend:** FastAPI · Pydantic · PostgreSQL · Alembic · REST APIs<br>
+**Frontend:** TypeScript · Next.js · React<br>
+**Engineering:** Git · GitHub Actions · Docker · pytest · Playwright
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jasirjru/jasirjru/gh-pages/github-contribution-grid-snake-dark.svg">
-  <img src="https://raw.githubusercontent.com/jasirjru/jasirjru/gh-pages/github-contribution-grid-snake.svg" width="100%" alt="Animated visualization of Jasir's real GitHub contribution calendar.">
-</picture>
-
-### Connect
-
-<p>
-  <a href="https://github.com/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_github_dark.svg"><img src="./assets/profile/connect_github_light.svg" width="143" alt="GitHub"></picture></a>
-  <a href="https://www.linkedin.com/in/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_linkedin_dark.svg"><img src="./assets/profile/connect_linkedin_light.svg" width="143" alt="LinkedIn"></picture></a>
-  <a href="https://huggingface.co/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_hugging_face_dark.svg"><img src="./assets/profile/connect_hugging_face_light.svg" width="143" alt="Hugging Face"></picture></a>
-  <a href="mailto:jasirlvl@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_email_dark.svg"><img src="./assets/profile/connect_email_light.svg" width="143" alt="Email"></picture></a>
-</p>
+<sub>Profile card regenerated daily by GitHub Actions from <a href="generate_profile.py">generate_profile.py</a>.</sub>

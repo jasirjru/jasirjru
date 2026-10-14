@@ -20,8 +20,8 @@ jobs:
         with:
           github_user_name: jasirjru
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.svg?color_snake=#9e4c16&color_dots=#ebedf0,#b9dcd6,#7cc2b9,#2f9c96,#006a74
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#edb56e&color_dots=#161b22,#14424a,#1f6f6c,#3fa79c,#83ded4
 
       - name: Publish
         uses: crazy-max/ghaction-github-pages@v4

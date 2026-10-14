@@ -120,7 +120,10 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         '<title>Jasir Abdul Hameed — Applied AI / ML Engineer</title>',
         '<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}'
         '.mobile{display:none}@media(max-width:480px){.desktop{display:none}'
-        '.mobile{display:inline}}</style>',
+        '.mobile{display:inline}}'
+        '@keyframes pulse{0%{r:4;opacity:.9}70%{r:11;opacity:0}100%{r:11;opacity:0}}'
+        '.pulse{animation:pulse 2s ease-out infinite}'
+        '@media (prefers-reduced-motion:reduce){.pulse{animation:none;opacity:0}}</style>',
         f'<defs><image id="portrait-source" x="0" y="0" width="{image_width}" '
         f'height="{image_height}" href="{image_uri}"/></defs>',
         f'<rect x="1" y="1" width="618" height="638" rx="14" '
@@ -129,7 +132,9 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         f'<path d="M1 44H619" stroke="{c["border"]}"/>',
         text(23, 29, ">", c["key"], 17, 700),
         text(46, 29, "jasirjru / profile", c["muted"], 13),
-        text(518, 29, "AI / ML", c["accent"], 12, 700),
+        f'<circle class="pulse" cx="486" cy="24" r="4" fill="{c["key"]}"/>'
+        f'<circle cx="486" cy="24" r="4" fill="{c["key"]}"/>',
+        text(498, 29, "OPEN TO WORK", c["accent"], 12, 700),
         '<g class="desktop">',
         text(230, 76, "jasirjru @ github", c["key"], 15, 700),
         text(230, 106, "Jasir Abdul Hameed", c["fg"], 22, 700),
@@ -387,6 +392,122 @@ def connect_svg(theme: str, label: str, width: int = 143) -> str:
     return "".join(parts)
 
 
+MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
+REDUCED_MOTION = "@media (prefers-reduced-motion:reduce){*{animation:none!important}}"
+HEADLINE_PROMPT = "jasir@kerala:~$ "
+HEADLINE_PHRASES = (
+    "building LLM applications and ML services",
+    "measuring whether they actually work",
+    "documenting what fails, then fixing it",
+)
+CHAR_WIDTH = 13.2  # 22px monospace advance width
+PHRASE_SECONDS = 4
+
+
+def headline_svg(theme: str) -> str:
+    """Typing headline that cycles through three phrases; static under reduced motion."""
+    c = THEMES[theme]
+    cycle = PHRASE_SECONDS * len(HEADLINE_PHRASES)
+    start_x = 24 + len(HEADLINE_PROMPT) * CHAR_WIDTH
+    style = (
+        f"text{{font-family:{MONO};font-size:22px}}"
+        f"@keyframes reveal{{0%{{transform:scaleX(0)}}13%{{transform:scaleX(1)}}28%{{transform:scaleX(1)}}"
+        f"31%{{transform:scaleX(0)}}100%{{transform:scaleX(0)}}}}"
+        f"@keyframes show{{0%,31%{{opacity:1}}31.1%,100%{{opacity:0}}}}"
+        f"@keyframes blink{{50%{{opacity:0}}}}"
+        f".mask{{transform-box:fill-box;transform-origin:left;"
+        f"animation:reveal {cycle}s steps(40,end) infinite}}"
+        f".phrase{{opacity:0;animation:show {cycle}s linear infinite}}"
+        f".cursor{{animation:blink 1s steps(1) infinite}}"
+        f"@media (prefers-reduced-motion:reduce){{.mask{{animation:none;transform:none}}"
+        f".phrase{{animation:none;opacity:0}}.p0{{opacity:1}}.cursor{{animation:none}}}}"
+    )
+    parts = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="64" viewBox="0 0 900 64" '
+        f'role="img" aria-label="{escape(HEADLINE_PROMPT)}{escape(", ".join(HEADLINE_PHRASES))}">',
+        f'<title>{escape("; ".join(HEADLINE_PHRASES))}</title>',
+        f"<style>{style}</style><defs>",
+    ]
+    for i, phrase in enumerate(HEADLINE_PHRASES):
+        width = len(phrase) * CHAR_WIDTH + 4
+        delay = i * PHRASE_SECONDS
+        parts.append(
+            f'<clipPath id="clip{i}"><rect class="mask" x="{start_x:.1f}" y="10" '
+            f'width="{width:.1f}" height="40" style="animation-delay:{delay}s"/></clipPath>'
+        )
+    parts.append("</defs>")
+    parts.append(text(24, 40, HEADLINE_PROMPT.rstrip(), c["key"], 22, 700))
+    for i, phrase in enumerate(HEADLINE_PHRASES):
+        delay = i * PHRASE_SECONDS
+        cursor_x = start_x + len(phrase) * CHAR_WIDTH + 6
+        parts.append(
+            f'<g class="phrase p{i}" style="animation-delay:{delay}s">'
+            f'<g clip-path="url(#clip{i})">{text(int(start_x), 40, phrase, c["fg"], 22)}</g>'
+            f'<rect class="cursor" x="{cursor_x:.1f}" y="22" width="12" height="24" fill="{c["accent"]}"/></g>'
+        )
+    parts.append("</svg>\n")
+    return "".join(parts)
+
+
+EVIDENCE = (
+    ("JRUVA RETRIEVAL", "MRR on 100 queries", (("Dense", 0.91, "0.91"), ("Hybrid", 0.90, "0.90"), ("BM25", 0.81, "0.81"))),
+    ("DOMAINTUNE", "valid JSON, 40 gold examples", (("Base", 0.225, "22.5%"), ("Fine-tuned", 0.925, "92.5%"))),
+)
+CI_GATES = ("124 pytest tests", "Playwright browser tests", "axe accessibility audit", "container CVE scan")
+
+
+def evidence_svg(theme: str) -> str:
+    """Three evidence tiles: bars grow to measured values, CI gates check in."""
+    c = THEMES[theme]
+    tile_w, gap, top = 280, 20, 20
+    style = (
+        f"text{{font-family:{MONO}}}"
+        "@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}"
+        "@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}"
+        ".bar{transform-box:fill-box;transform-origin:left;animation:grow 1.1s cubic-bezier(.2,.8,.2,1) both}"
+        ".gate{animation:rise .5s ease-out both}"
+        + REDUCED_MOTION
+    )
+    parts = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250" role="img" '
+        'aria-label="Evidence. Jruva retrieval MRR on 100 queries: dense 0.91, hybrid 0.90, BM25 0.81. '
+        'DomainTune valid JSON on 40 gold examples: base 22.5 percent, fine-tuned 92.5 percent. '
+        f'CustomerIQ CI: {", ".join(CI_GATES)}.">',
+        "<title>Measured evidence behind each project</title>",
+        f"<style>{style}</style>",
+    ]
+    for t, (title, subtitle, rows) in enumerate(EVIDENCE):
+        x = t * (tile_w + gap)
+        parts.append(f'<rect x="{x + 1}" y="{top}" width="{tile_w - 2}" height="210" rx="12" '
+                     f'fill="{c["bg"]}" stroke="{c["border"]}" stroke-width="1.5"/>')
+        parts.append(text(x + 20, top + 34, title, c["key"], 15, 700))
+        parts.append(text(x + 20, top + 56, subtitle, c["muted"], 13))
+        for r, (label, value, shown) in enumerate(rows):
+            y = top + 88 + r * 40
+            delay = 0.2 + t * 0.35 + r * 0.15
+            parts.append(text(x + 20, y, label, c["fg"], 14))
+            parts.append(text(x + tile_w - 20 - len(shown) * 8.4, y, shown, c["fg"], 14, 700))
+            parts.append(f'<rect x="{x + 20}" y="{y + 8}" width="{tile_w - 40}" height="8" rx="4" fill="{c["bar"]}"/>')
+            color = c["accent"] if r == 0 or label == "Fine-tuned" else c["key"]
+            parts.append(f'<rect class="bar" style="animation-delay:{delay:.2f}s" x="{x + 20}" y="{y + 8}" '
+                         f'width="{(tile_w - 40) * value:.1f}" height="8" rx="4" fill="{color}"/>')
+    x = 2 * (tile_w + gap)
+    parts.append(f'<rect x="{x + 1}" y="{top}" width="{tile_w - 2}" height="210" rx="12" '
+                 f'fill="{c["bg"]}" stroke="{c["border"]}" stroke-width="1.5"/>')
+    parts.append(text(x + 20, top + 34, "CUSTOMERIQ CI", c["key"], 15, 700))
+    parts.append(text(x + 20, top + 56, "gates on every push", c["muted"], 13))
+    for g, gate in enumerate(CI_GATES):
+        y = top + 92 + g * 30
+        delay = 0.9 + g * 0.25
+        parts.append(f'<g class="gate" style="animation-delay:{delay:.2f}s">'
+                     f'<circle cx="{x + 29}" cy="{y - 5}" r="9" fill="{c["accent"]}"/>'
+                     f'<path d="M{x + 24} {y - 5}l3.5 3.5 6-7" fill="none" stroke="{c["bg"]}" stroke-width="2.2" '
+                     f'stroke-linecap="round" stroke-linejoin="round"/>'
+                     f'{text(x + 46, y, gate, c["fg"], 14)}</g>')
+    parts.append("</svg>\n")
+    return "".join(parts)
+
+
 def write_if_changed(name: str, content: str) -> bool:
     path = ROOT / name
     encoded = content.encode("utf-8")
@@ -403,6 +524,8 @@ def main() -> None:
     outputs = {}
     for theme in ("dark", "light"):
         outputs[f"{theme}_mode.svg"] = svg(theme, image_uri, width, height, counts)
+        outputs[f"assets/profile/headline_{theme}.svg"] = headline_svg(theme)
+        outputs[f"assets/profile/evidence_{theme}.svg"] = evidence_svg(theme)
         outputs[f"assets/profile/focus_{theme}.svg"] = focus_svg(theme)
         outputs[f"assets/profile/stack_{theme}.svg"] = stack_svg(theme)
         outputs[f"assets/profile/activity_{theme}.svg"] = activity_svg(theme, counts)

@@ -18,35 +18,50 @@ B.Tech Computer Science, 2026 · Kerala, India · open to entry-level Applied AI
 
 ### Featured work
 
+<a href="https://www.jruva.in"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/work_jruva_dark.svg">
+  <img src="./assets/profile/work_jruva_light.svg" width="100%" alt="Jruva, public beta: document-QA assistant with hybrid retrieval and multi-provider LLM failover. Reproducible benchmark: dense MRR 0.91 vs BM25 0.81 on 100 queries.">
+</picture></a>
+
+<sub>[Live beta](https://www.jruva.in) · [Benchmark, data and script](https://github.com/jasirjru/jruva-retrieval-eval) · application source private, walkthrough on request</sub>
+
+<a href="https://github.com/jasirjru/CustomerIQ"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/work_customeriq_dark.svg">
+  <img src="./assets/profile/work_customeriq_light.svg" width="100%" alt="CustomerIQ: churn-scoring inference API with strict Pydantic contracts and SHA-256 artifact checks. CI runs 124 tests plus Playwright, axe accessibility and container vulnerability scans.">
+</picture></a>
+
+<sub>[Source and CI](https://github.com/jasirjru/CustomerIQ) · [Live demo](https://customeriq-qd2v.onrender.com) (free tier, may take a minute to wake) · [Model card](https://github.com/jasirjru/CustomerIQ/blob/main/docs/MODEL_CARD.md)</sub>
+
+<a href="https://github.com/jasirjru/DomainTune#results"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/work_domaintune_dark.svg">
+  <img src="./assets/profile/work_domaintune_light.svg" width="100%" alt="DomainTune: QLoRA fine-tune of Qwen2.5-1.5B for support-ticket triage. Valid JSON rose from 22.5% to 92.5% on 40 gold examples; exact match is still 0%.">
+</picture></a>
+
+<sub>[Results and failure analysis](https://github.com/jasirjru/DomainTune#results) · [Model on Hugging Face](https://huggingface.co/jasirjru/DomainTune-Qwen2.5-1.5B-Triage) · [Project page](https://jasirjru.github.io/DomainTune/)</sub>
+
+<a href="https://www.spaceappschallenge.org/2024/find-a-team/darknova/"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/work_nasa_dark.svg">
+  <img src="./assets/profile/work_nasa_light.svg" width="100%" alt="NASA Space Apps Challenge 2024: website developer in six-member Team DarkNova. Global Nominee and People's Choice.">
+</picture></a>
+
+<sub>[Official team page](https://www.spaceappschallenge.org/2024/find-a-team/darknova/) · [Website source](https://github.com/jasirjru/dark_nova)</sub>
+
+<br>
+
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/evidence_dark.svg">
-  <img src="./assets/profile/evidence_light.svg" width="100%" alt="Evidence. Jruva retrieval MRR on 100 queries: dense 0.91, hybrid 0.90, BM25 0.81. DomainTune valid JSON on 40 gold examples: base 22.5%, fine-tuned 92.5%. CustomerIQ CI: 124 pytest tests, Playwright browser tests, axe accessibility audit, container CVE scan.">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/principles_dark.svg">
+  <img src="./assets/profile/principles_light.svg" width="100%" alt="How I work: evidence first, every result links to its data, scripts or tests; report failures, negative results are documented with the next fix; guardrails, validation, artifact checks, CI, accessibility and security scans.">
 </picture>
 
-| Project | What it is | Evidence |
-|---|---|---|
-| **[Jruva](https://www.jruva.in)**<br>[benchmark](https://github.com/jasirjru/jruva-retrieval-eval) | Public-beta document-QA assistant. FastAPI + Next.js, hybrid retrieval (BGE embeddings in Qdrant, BM25, reciprocal rank fusion) and multi-provider LLM failover. | Reproducible benchmark on 100 queries: dense MRR **0.91** vs BM25 **0.81**. Fusion did not beat dense overall and halved Hit@1 on ambiguous queries. |
-| **[CustomerIQ](https://github.com/jasirjru/CustomerIQ)**<br>[live demo](https://customeriq-qd2v.onrender.com) | Churn-scoring inference API. Strict Pydantic contracts, SHA-256 model-artifact verification and a model card. | CI runs 124 pytest tests, Playwright browser and axe accessibility checks, and a container vulnerability scan. Scores are documented as uncalibrated. |
-| **[DomainTune](https://github.com/jasirjru/DomainTune#results)**<br>[model](https://huggingface.co/jasirjru/DomainTune-Qwen2.5-1.5B-Triage) | QLoRA fine-tune of Qwen2.5-1.5B that turns support tickets into five-field JSON triage. | Valid JSON **22.5% → 92.5%** on a 40-example gold set; exact match still 0%. Diagnosed a missing stop token and majority-class collapse. |
-| **[NASA Space Apps 2024](https://www.spaceappschallenge.org/2024/find-a-team/darknova/)**<br>[site](https://github.com/jasirjru/dark_nova) | Website developer in six-member Team DarkNova (Galactic Games challenge). | Global Nominee and People's Choice. |
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/roadmap_dark.svg">
+  <img src="./assets/profile/roadmap_light.svg" width="100%" alt="Next: DomainTune v2, retrain with the stop-token fix and rebalanced labels; Jruva eval, add held-out queries that were not used for tuning.">
+</picture>
 
-### How I work
-
-- **Evidence first.** Every result above links to the data, scripts or tests behind it.
-- **Report what fails.** Negative results (fusion not helping, a fine-tune that never stops) are documented, with the next fix.
-- **Guardrails before features.** Input validation, artifact checks, CI, accessibility and security scans.
-
-### Next
-
-- Retrain DomainTune with the end-of-sequence fix and rebalanced labels, then rerun the gold-set evaluation.
-- Extend the Jruva benchmark with held-out queries that were not used for tuning.
-
-### Stack
-
-**AI and LLMs:** Python · PyTorch · Hugging Face Transformers, PEFT, TRL · QLoRA · scikit-learn · RAG · Qdrant · BM25 · retrieval and LLM evaluation<br>
-**Backend:** FastAPI · Pydantic · PostgreSQL · Alembic · REST APIs<br>
-**Frontend:** TypeScript · Next.js · React<br>
-**Engineering:** Git · GitHub Actions · Docker · pytest · Playwright
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/stack_dark.svg">
+  <img src="./assets/profile/stack_light.svg" width="100%" alt="Technical stack. AI and ML: Python, PyTorch, scikit-learn, Hugging Face. LLM: RAG, QLoRA with PEFT and TRL, evaluation. Build: FastAPI, Pydantic, Next.js, React. Data: Qdrant, PostgreSQL, BM25. Tools: Git, GitHub Actions, Docker, pytest.">
+</picture>
 
 ### Contributions
 

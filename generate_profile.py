@@ -316,10 +316,10 @@ def stack_svg(theme: str) -> str:
     parts = panel_shell(theme, 304, "TECHNICAL STACK")
     rows = (
         ("AI / ML", "Python · PyTorch · scikit-learn · Hugging Face", 78),
-        ("LLM", "RAG · LoRA / QLoRA · evaluation", 124),
-        ("BUILD", "FastAPI · Node.js · Express · React", 170),
-        ("DATA", "Qdrant · PostgreSQL", 216),
-        ("TOOLS", "Git · GitHub Actions · Docker · Ruff", 262),
+        ("LLM", "RAG · QLoRA (PEFT, TRL) · evaluation", 124),
+        ("BUILD", "FastAPI · Pydantic · Next.js · React", 170),
+        ("DATA", "Qdrant · PostgreSQL · BM25", 216),
+        ("TOOLS", "Git · GitHub Actions · Docker · pytest", 262),
     )
     parts.append('<title>Technical stack across AI, LLMs, web, data, and tools</title>')
     parts.append('<g class="desktop">')
@@ -332,10 +332,10 @@ def stack_svg(theme: str) -> str:
     parts.append('</g><g class="mobile">')
     mobile_rows = (
         ("AI / ML", "Python · PyTorch · scikit-learn · HF", 72),
-        ("LLM", "RAG · LoRA / QLoRA · evaluation", 119),
-        ("BUILD", "FastAPI · Node.js · Express · React", 166),
+        ("LLM", "RAG · QLoRA · evaluation", 119),
+        ("BUILD", "FastAPI · Next.js · React", 166),
         ("DATA", "Qdrant · PostgreSQL", 213),
-        ("TOOLS", "Git · Actions · Docker · Ruff", 260),
+        ("TOOLS", "Git · Actions · Docker", 260),
     )
     for label, value, y in mobile_rows:
         parts.extend((
@@ -402,6 +402,7 @@ HEADLINE_PHRASES = (
 )
 CHAR_WIDTH = 13.2  # 22px monospace advance width
 PHRASE_SECONDS = 4
+FIRST_FRAME_OFFSET = 1.6  # start with phrase one typed so first-frame renderers show a full line
 
 
 def headline_svg(theme: str) -> str:
@@ -430,7 +431,7 @@ def headline_svg(theme: str) -> str:
     ]
     for i, phrase in enumerate(HEADLINE_PHRASES):
         width = len(phrase) * CHAR_WIDTH + 4
-        delay = i * PHRASE_SECONDS
+        delay = i * PHRASE_SECONDS - FIRST_FRAME_OFFSET
         parts.append(
             f'<clipPath id="clip{i}"><rect class="mask" x="{start_x:.1f}" y="10" '
             f'width="{width:.1f}" height="40" style="animation-delay:{delay}s"/></clipPath>'
@@ -438,7 +439,7 @@ def headline_svg(theme: str) -> str:
     parts.append("</defs>")
     parts.append(text(24, 40, HEADLINE_PROMPT.rstrip(), c["key"], 22, 700))
     for i, phrase in enumerate(HEADLINE_PHRASES):
-        delay = i * PHRASE_SECONDS
+        delay = i * PHRASE_SECONDS - FIRST_FRAME_OFFSET
         cursor_x = start_x + len(phrase) * CHAR_WIDTH + 6
         parts.append(
             f'<g class="phrase p{i}" style="animation-delay:{delay}s">'
@@ -449,61 +450,183 @@ def headline_svg(theme: str) -> str:
     return "".join(parts)
 
 
-EVIDENCE = (
-    ("JRUVA RETRIEVAL", "MRR on 100 queries", (("Dense", 0.91, "0.91"), ("Hybrid", 0.90, "0.90"), ("BM25", 0.81, "0.81"))),
-    ("DOMAINTUNE", "valid JSON, 40 gold examples", (("Base", 0.225, "22.5%"), ("Fine-tuned", 0.925, "92.5%"))),
+CARD_STYLE = (
+    "<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}"
+    ".mobile{display:none}@media(max-width:480px){.desktop{display:none}.mobile{display:inline}}"
+    "@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}"
+    "@keyframes rise{from{transform:translateY(5px)}to{transform:none}}"
+    "@keyframes pulse{0%{r:4;opacity:.9}70%{r:10;opacity:0}100%{r:10;opacity:0}}"
+    "@keyframes cursor{50%{opacity:0}}"
+    ".bar{transform-box:fill-box;transform-origin:left;animation:grow 1.1s cubic-bezier(.2,.8,.2,1) .3s both}"
+    ".tick{animation:rise .45s ease-out both}.pulse{animation:pulse 2s ease-out infinite}"
+    ".cursor{animation:cursor 1.2s steps(1,end) infinite}"
+    "@media (prefers-reduced-motion:reduce){*{animation:none!important}.pulse{opacity:0}}</style>"
 )
-CI_GATES = ("124 pytest tests", "Playwright browser tests", "axe accessibility audit", "container CVE scan")
+
+# slug, index, title, status, live, pitch (2 lines), mobile pitch, metric, metric label,
+# visual ("bars", rows) | ("ticks", labels) | ("badges", labels), chips, alt text
+WORK = (
+    ("jruva", "01", "JRUVA", "PUBLIC BETA", True,
+     ("Document-QA assistant with hybrid retrieval", "and multi-provider LLM failover."),
+     "Document QA with hybrid retrieval.",
+     "0.91", "dense MRR vs 0.81 BM25",
+     ("bars", (("dense", 0.91), ("BM25", 0.81))),
+     "FASTAPI · NEXT.JS · QDRANT · BM25 + RRF",
+     "Jruva, public beta: document-QA assistant with hybrid retrieval and multi-provider LLM failover. "
+     "Reproducible benchmark: dense MRR 0.91 vs BM25 0.81 on 100 queries."),
+    ("customeriq", "02", "CUSTOMERIQ", "CI PASSING", True,
+     ("Churn-scoring inference API with strict", "Pydantic contracts and artifact checks."),
+     "Churn-scoring API with strict contracts.",
+     "124", "tests on every push",
+     ("ticks", ("pytest", "Playwright", "axe a11y", "CVE scan")),
+     "SCIKIT-LEARN · FASTAPI · DOCKER · ACTIONS",
+     "CustomerIQ: churn-scoring inference API with strict Pydantic contracts and SHA-256 artifact checks. "
+     "CI runs 124 tests plus Playwright, axe accessibility and container vulnerability scans."),
+    ("domaintune", "03", "DOMAINTUNE", "EVALUATED", False,
+     ("QLoRA fine-tune of Qwen2.5-1.5B that turns", "support tickets into five-field JSON."),
+     "QLoRA fine-tune: tickets to JSON.",
+     "92.5%", "valid JSON, up from 22.5%",
+     ("bars", (("base", 0.225), ("tuned", 0.925))),
+     "PEFT · TRL · QLORA · HUGGING FACE",
+     "DomainTune: QLoRA fine-tune of Qwen2.5-1.5B for support-ticket triage. "
+     "Valid JSON rose from 22.5% to 92.5% on 40 gold examples; exact match is still 0%."),
+    ("nasa", "04", "NASA SPACE APPS", "2024", False,
+     ("Website developer in six-member Team DarkNova", "for the Galactic Games challenge."),
+     "Website developer, Team DarkNova.",
+     "2 awards", "at the 2024 challenge",
+     ("badges", ("GLOBAL NOMINEE", "PEOPLE'S CHOICE")),
+     "HTML · CSS · JAVASCRIPT · THREE.JS",
+     "NASA Space Apps Challenge 2024: website developer in six-member Team DarkNova. "
+     "Global Nominee and People's Choice."),
+)
 
 
-def evidence_svg(theme: str) -> str:
-    """Three evidence tiles: bars grow to measured values, CI gates check in."""
+def work_card_svg(theme: str, card: tuple) -> str:
     c = THEMES[theme]
-    tile_w, gap, top = 280, 20, 20
-    style = (
-        f"text{{font-family:{MONO}}}"
-        "@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}"
-        "@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}"
-        ".bar{transform-box:fill-box;transform-origin:left;animation:grow 1.1s cubic-bezier(.2,.8,.2,1) both}"
-        ".gate{animation:rise .5s ease-out both}"
-        + REDUCED_MOTION
-    )
+    (slug, index, title, status, live, pitch, mobile_pitch, metric, metric_label,
+     visual, chips, alt) = card
+    kind, items = visual
+    metric_size = 30 if len(metric) <= 5 else 24
     parts = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250" role="img" '
-        'aria-label="Evidence. Jruva retrieval MRR on 100 queries: dense 0.91, hybrid 0.90, BM25 0.81. '
-        'DomainTune valid JSON on 40 gold examples: base 22.5 percent, fine-tuned 92.5 percent. '
-        f'CustomerIQ CI: {", ".join(CI_GATES)}.">',
-        "<title>Measured evidence behind each project</title>",
-        f"<style>{style}</style>",
+        '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="206" viewBox="0 0 620 206" '
+        f'role="img" aria-label="{escape(alt)}">',
+        f"<title>{escape(alt)}</title>",
+        CARD_STYLE,
+        f'<rect x="1" y="1" width="618" height="204" rx="10" fill="{c["bg"]}" stroke="{c["border"]}"/>',
+        f'<rect x="1" y="1" width="6" height="204" rx="3" fill="{c["accent"] if live else c["key"]}"/>',
+        f'<path d="M22 44H598 M22 168H598" stroke="{c["rule"]}"/>',
     ]
-    for t, (title, subtitle, rows) in enumerate(EVIDENCE):
-        x = t * (tile_w + gap)
-        parts.append(f'<rect x="{x + 1}" y="{top}" width="{tile_w - 2}" height="210" rx="12" '
-                     f'fill="{c["bg"]}" stroke="{c["border"]}" stroke-width="1.5"/>')
-        parts.append(text(x + 20, top + 34, title, c["key"], 15, 700))
-        parts.append(text(x + 20, top + 56, subtitle, c["muted"], 13))
-        for r, (label, value, shown) in enumerate(rows):
-            y = top + 88 + r * 40
-            delay = 0.2 + t * 0.35 + r * 0.15
-            parts.append(text(x + 20, y, label, c["fg"], 14))
-            parts.append(text(x + tile_w - 20 - len(shown) * 8.4, y, shown, c["fg"], 14, 700))
-            parts.append(f'<rect x="{x + 20}" y="{y + 8}" width="{tile_w - 40}" height="8" rx="4" fill="{c["bar"]}"/>')
-            color = c["accent"] if r == 0 or label == "Fine-tuned" else c["key"]
-            parts.append(f'<rect class="bar" style="animation-delay:{delay:.2f}s" x="{x + 20}" y="{y + 8}" '
-                         f'width="{(tile_w - 40) * value:.1f}" height="8" rx="4" fill="{color}"/>')
-    x = 2 * (tile_w + gap)
-    parts.append(f'<rect x="{x + 1}" y="{top}" width="{tile_w - 2}" height="210" rx="12" '
-                 f'fill="{c["bg"]}" stroke="{c["border"]}" stroke-width="1.5"/>')
-    parts.append(text(x + 20, top + 34, "CUSTOMERIQ CI", c["key"], 15, 700))
-    parts.append(text(x + 20, top + 56, "gates on every push", c["muted"], 13))
-    for g, gate in enumerate(CI_GATES):
-        y = top + 92 + g * 30
-        delay = 0.9 + g * 0.25
-        parts.append(f'<g class="gate" style="animation-delay:{delay:.2f}s">'
-                     f'<circle cx="{x + 29}" cy="{y - 5}" r="9" fill="{c["accent"]}"/>'
-                     f'<path d="M{x + 24} {y - 5}l3.5 3.5 6-7" fill="none" stroke="{c["bg"]}" stroke-width="2.2" '
-                     f'stroke-linecap="round" stroke-linejoin="round"/>'
-                     f'{text(x + 46, y, gate, c["fg"], 14)}</g>')
+    status_x = 598 - len(status) * 7.3
+    if live:
+        parts.append(f'<circle class="pulse" cx="{status_x - 12:.0f}" cy="25" r="4" fill="{c["key"]}"/>'
+                     f'<circle cx="{status_x - 12:.0f}" cy="25" r="4" fill="{c["key"]}"/>')
+    parts.append(text(int(status_x), 30, status, c["accent"], 12, 700))
+    # desktop
+    parts.append('<g class="desktop">')
+    parts.append(text(24, 30, f"{index} /", c["muted"], 13, 700))
+    parts.append(text(62, 30, title, c["key"], 17, 700))
+    parts.append(text(24, 74, pitch[0], c["fg"], 16))
+    parts.append(text(24, 98, pitch[1], c["fg"], 16))
+    parts.append(text(24, 146, metric, c["accent"], metric_size, 700))
+    parts.append(text(int(30 + len(metric) * metric_size * 0.6), 146, metric_label, c["muted"], 13))
+    vx = 400
+    if kind == "bars":
+        for r, (label, value) in enumerate(items):
+            y = 122 + r * 24
+            parts.append(text(vx, y + 4, label, c["fg"], 12))
+            parts.append(f'<rect x="{vx + 52}" y="{y - 5}" width="142" height="7" rx="3.5" fill="{c["bar"]}"/>')
+            parts.append(f'<rect class="bar" style="animation-delay:{0.3 + r * 0.2:.1f}s" x="{vx + 52}" '
+                         f'y="{y - 5}" width="{142 * value:.1f}" height="7" rx="3.5" '
+                         f'fill="{c["accent"] if r == 0 or value > 0.9 else c["key"]}"/>')
+    elif kind == "ticks":
+        for t, label in enumerate(items):
+            x, y = vx + (t % 2) * 100, 122 + (t // 2) * 24
+            parts.append(f'<g class="tick" style="animation-delay:{0.4 + t * 0.2:.1f}s">'
+                         f'<circle cx="{x + 6}" cy="{y}" r="6" fill="{c["accent"]}"/>'
+                         f'<path d="M{x + 3} {y}l2.2 2.2 4-4.6" fill="none" stroke="{c["bg"]}" stroke-width="1.8" '
+                         f'stroke-linecap="round" stroke-linejoin="round"/>{text(x + 17, y + 4, label, c["fg"], 12)}</g>')
+    else:
+        for b, label in enumerate(items):
+            y = 112 + b * 26
+            width = len(label) * 7.3 + 20
+            parts.append(f'<g class="tick" style="animation-delay:{0.4 + b * 0.25:.2f}s">'
+                         f'<rect x="{vx}" y="{y}" width="{width:.0f}" height="20" rx="10" fill="none" '
+                         f'stroke="{c["accent"]}"/>{text(vx + 10, y + 14, label, c["accent"], 12, 700)}</g>')
+    parts.append(text(24, 192, chips, c["muted"], 12, 700))
+    parts.append("</g>")
+    # mobile: larger type, fewer words
+    parts.append('<g class="mobile">')
+    parts.append(text(24, 31, title, c["key"], 21, 700))
+    parts.append(text(24, 84, mobile_pitch, c["fg"], 21))
+    parts.append(text(24, 140, metric, c["accent"], 34 if len(metric) <= 5 else 28, 700))
+    parts.append(text(int(32 + len(metric) * (34 if len(metric) <= 5 else 28) * 0.6), 140, metric_label, c["muted"], 17))
+    parts.append(text(24, 195, chips.split(" · ")[0] + " · " + chips.split(" · ")[1], c["muted"], 16, 700))
+    parts.append("</g></svg>\n")
+    return "".join(parts)
+
+
+PRINCIPLES = (
+    ("01", "EVIDENCE FIRST", ("Every result links to", "the data, scripts or", "tests behind it.")),
+    ("02", "REPORT FAILURES", ("Negative results are", "documented with the", "next fix.")),
+    ("03", "GUARDRAILS", ("Validation, artifact", "checks, CI, a11y and", "security scans.")),
+)
+
+
+def principles_svg(theme: str) -> str:
+    c = THEMES[theme]
+    parts = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="196" viewBox="0 0 620 196" role="img" '
+        'aria-label="How I work: evidence first, every result links to its data, scripts or tests; '
+        'report failures, negative results are documented with the next fix; guardrails, validation, '
+        'artifact checks, CI, accessibility and security scans.">',
+        "<title>How I work</title>", CARD_STYLE,
+        f'<rect x="1" y="1" width="618" height="194" rx="10" fill="{c["bg"]}" stroke="{c["border"]}"/>',
+        f'<path d="M20 43H600" stroke="{c["rule"]}"/>',
+        text(22, 30, ">", c["key"], 16, 700), text(43, 30, "HOW I WORK", c["fg"], 15, 700),
+        '<g class="desktop">',
+    ]
+    for i, (num, title, lines) in enumerate(PRINCIPLES):
+        x = 24 + i * 196
+        parts.append(f'<g class="tick" style="animation-delay:{0.15 + i * 0.2:.2f}s">')
+        parts.append(text(x, 74, num, c["accent"], 13, 700))
+        parts.append(text(x, 98, title, c["key"], 15, 700))
+        for j, line in enumerate(lines):
+            parts.append(text(x, 126 + j * 21, line, c["fg"], 14))
+        parts.append("</g>")
+        if i:
+            parts.append(f'<path d="M{x - 14} 62V176" stroke="{c["rule"]}"/>')
+    parts.append('</g><g class="mobile">')
+    for i, (num, title, lines) in enumerate(PRINCIPLES):
+        y = 82 + i * 42
+        parts.append(text(24, y, num, c["accent"], 18, 700))
+        parts.append(text(70, y, title, c["key"], 20, 700))
+    parts.append("</g></svg>\n")
+    return "".join(parts)
+
+
+ROADMAP = (
+    ("DOMAINTUNE v2", "Retrain with the stop-token fix and rebalanced labels."),
+    ("JRUVA EVAL", "Add held-out queries that were not used for tuning."),
+)
+
+
+def roadmap_svg(theme: str) -> str:
+    c = THEMES[theme]
+    parts = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="166" viewBox="0 0 620 166" role="img" '
+        f'aria-label="Next: {escape("; ".join(f"{a}: {b}" for a, b in ROADMAP))}">',
+        "<title>Next</title>", CARD_STYLE,
+        f'<rect x="1" y="1" width="618" height="164" rx="10" fill="{c["bg"]}" stroke="{c["border"]}"/>',
+        f'<path d="M20 43H600" stroke="{c["rule"]}"/>',
+        text(22, 30, ">", c["key"], 16, 700), text(43, 30, "NEXT", c["fg"], 15, 700),
+        f'<rect class="cursor" x="88" y="17" width="8" height="14" fill="{c["accent"]}"/>',
+    ]
+    for i, (name, desc) in enumerate(ROADMAP):
+        y = 80 + i * 52
+        parts.append(f'<rect x="24" y="{y - 15}" width="58" height="20" rx="10" fill="none" stroke="{c["accent"]}"/>')
+        parts.append(text(34, y, "NEXT", c["accent"], 11, 700))
+        parts.append(text(96, y, name, c["key"], 15, 700))
+        parts.append(f'<g class="desktop">{text(96, y + 22, desc, c["fg"], 13)}</g>')
     parts.append("</svg>\n")
     return "".join(parts)
 
@@ -525,7 +648,10 @@ def main() -> None:
     for theme in ("dark", "light"):
         outputs[f"{theme}_mode.svg"] = svg(theme, image_uri, width, height, counts)
         outputs[f"assets/profile/headline_{theme}.svg"] = headline_svg(theme)
-        outputs[f"assets/profile/evidence_{theme}.svg"] = evidence_svg(theme)
+        outputs[f"assets/profile/principles_{theme}.svg"] = principles_svg(theme)
+        outputs[f"assets/profile/roadmap_{theme}.svg"] = roadmap_svg(theme)
+        for card in WORK:
+            outputs[f"assets/profile/work_{card[0]}_{theme}.svg"] = work_card_svg(theme, card)
         outputs[f"assets/profile/focus_{theme}.svg"] = focus_svg(theme)
         outputs[f"assets/profile/stack_{theme}.svg"] = stack_svg(theme)
         outputs[f"assets/profile/activity_{theme}.svg"] = activity_svg(theme, counts)

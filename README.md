@@ -12,7 +12,7 @@
 
 ### Featured AI/ML work
 
-<a href="https://github.com/jasirjru/DomainTune"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/domaintune_dark.svg"><img src="./assets/profile/domaintune_light.svg" width="100%" alt="DomainTune: LoRA and QLoRA training for support-ticket triage with structured evaluation. View its GitHub repository."></picture></a>
+<a href="https://github.com/jasirjru/DomainTune"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/domaintune_dark.svg"><img src="./assets/profile/domaintune_light.svg" width="100%" alt="DomainTune: LoRA and QLoRA training for support-ticket triage with an evaluation harness (results in progress). View its GitHub repository."></picture></a>
 
 <a href="https://huggingface.co/jasirjru/DomainTune-Qwen2.5-1.5B-Triage"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/link_model_dark.svg"><img src="./assets/profile/link_model_light.svg" width="245" alt="Explore the DomainTune model on Hugging Face"></picture></a>
 
@@ -46,7 +46,7 @@
 
 <p>
   <a href="https://github.com/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_github_dark.svg"><img src="./assets/profile/connect_github_light.svg" width="143" alt="GitHub"></picture></a>
-  <a href="https://www.linkedin.com/in/jasir-abdul-hameed-762388338/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_linkedin_dark.svg"><img src="./assets/profile/connect_linkedin_light.svg" width="143" alt="LinkedIn"></picture></a>
+  <a href="https://www.linkedin.com/in/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_linkedin_dark.svg"><img src="./assets/profile/connect_linkedin_light.svg" width="143" alt="LinkedIn"></picture></a>
   <a href="https://huggingface.co/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_hugging_face_dark.svg"><img src="./assets/profile/connect_hugging_face_light.svg" width="143" alt="Hugging Face"></picture></a>
   <a href="mailto:jrunull@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_email_dark.svg"><img src="./assets/profile/connect_email_light.svg" width="143" alt="Email"></picture></a>
 </p>

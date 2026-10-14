@@ -12,6 +12,8 @@
 
 ### Featured AI/ML work
 
+**New:** [Jruva retrieval benchmark](https://github.com/jasirjru/jruva-retrieval-eval): dense vs BM25 vs reciprocal rank fusion, reproducible, with per-category results. [DomainTune evaluation](https://github.com/jasirjru/DomainTune#results): base vs fine-tuned on a 40-example gold set, with diagnosed failures.
+
 <a href="https://github.com/jasirjru/DomainTune"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/domaintune_dark.svg"><img src="./assets/profile/domaintune_light.svg" width="100%" alt="DomainTune: LoRA and QLoRA training for support-ticket triage with an evaluation harness (results in progress). View its GitHub repository."></picture></a>
 
 <a href="https://huggingface.co/jasirjru/DomainTune-Qwen2.5-1.5B-Triage"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/link_model_dark.svg"><img src="./assets/profile/link_model_light.svg" width="245" alt="Explore the DomainTune model on Hugging Face"></picture></a>

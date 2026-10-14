@@ -4,17 +4,17 @@
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/headline_dark.svg">
-  <img src="./assets/profile/headline_light.svg" width="100%" alt="jasir@kerala:~$ building LLM applications and ML services; measuring whether they actually work; documenting what fails, then fixing it.">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/about_dark.svg">
+  <img src="./assets/profile/about_light.svg" width="100%" alt="About: Applied AI engineer building LLM applications and ML services, measuring whether they actually work, and documenting what fails. Education: B.Tech Computer Science and Engineering, 2026, MES College of Engineering, Kuttippuram. Target: Applied AI, GenAI and ML engineering roles. Work mode: on-site, hybrid or remote, based in Kerala. Available immediately.">
 </picture>
 
-### Applied AI engineer: I build LLM applications and ML services, then measure whether they work.
-
-B.Tech Computer Science, 2026 · Kerala, India · open to entry-level Applied AI, GenAI and ML engineering roles.
-
-[Portfolio](https://jasirjru-portfolio.vercel.app) · [LinkedIn](https://www.linkedin.com/in/jasirjru) · [Hugging Face](https://huggingface.co/jasirjru) · [Email](mailto:jasirlvl@gmail.com) · [Resume](https://jasirjru-portfolio.vercel.app/resume.pdf)
-
----
+<p>
+<a href="https://jasirjru-portfolio.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/btn_portfolio_dark.svg"><img src="./assets/profile/btn_portfolio_light.svg" height="40" alt="Portfolio"></picture></a>
+<a href="https://jasirjru-portfolio.vercel.app/resume.pdf"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/btn_resume_dark.svg"><img src="./assets/profile/btn_resume_light.svg" height="40" alt="Resume (PDF)"></picture></a>
+<a href="https://www.linkedin.com/in/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/btn_linkedin_dark.svg"><img src="./assets/profile/btn_linkedin_light.svg" height="40" alt="LinkedIn"></picture></a>
+<a href="https://huggingface.co/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/btn_hugging_face_dark.svg"><img src="./assets/profile/btn_hugging_face_light.svg" height="40" alt="Hugging Face"></picture></a>
+<a href="mailto:jasirlvl@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/btn_email_dark.svg"><img src="./assets/profile/btn_email_light.svg" height="40" alt="Email jasirlvl@gmail.com"></picture></a>
+</p>
 
 ### Featured work
 

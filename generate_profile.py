@@ -400,54 +400,108 @@ HEADLINE_PHRASES = (
     "measuring whether they actually work",
     "documenting what fails, then fixing it",
 )
-CHAR_WIDTH = 13.2  # 22px monospace advance width
 PHRASE_SECONDS = 4
 FIRST_FRAME_OFFSET = 1.6  # start with phrase one typed so first-frame renderers show a full line
+TYPING_CYCLE = PHRASE_SECONDS * len(HEADLINE_PHRASES)
+TYPING_STYLE = (
+    "@keyframes reveal{0%{transform:scaleX(0)}13%{transform:scaleX(1)}28%{transform:scaleX(1)}"
+    "31%{transform:scaleX(0)}100%{transform:scaleX(0)}}"
+    "@keyframes show{0%,31%{opacity:1}31.1%,100%{opacity:0}}"
+    "@keyframes blink{50%{opacity:0}}"
+    f".mask{{transform-box:fill-box;transform-origin:left;animation:reveal {TYPING_CYCLE}s steps(40,end) infinite}}"
+    f".phrase{{opacity:0;animation:show {TYPING_CYCLE}s linear infinite}}"
+    ".blink{animation:blink 1s steps(1) infinite}"
+    "@media (prefers-reduced-motion:reduce){.mask{animation:none;transform:none}"
+    ".phrase{animation:none;opacity:0}.p0{opacity:1}.blink{animation:none}}"
+)
 
 
-def headline_svg(theme: str) -> str:
-    """Typing headline that cycles through three phrases; static under reduced motion."""
+def typing_parts(c: dict[str, str], key: str, x: float, y: int, size: int) -> tuple[str, str]:
+    """Clip-path defs and phrase groups for a typing line starting at (x, y)."""
+    advance = size * 0.6
+    defs, body = [], []
+    for i, phrase in enumerate(HEADLINE_PHRASES):
+        delay = i * PHRASE_SECONDS - FIRST_FRAME_OFFSET
+        width = len(phrase) * advance + 4
+        defs.append(f'<clipPath id="{key}{i}"><rect class="mask" x="{x:.1f}" y="{y - size}" '
+                    f'width="{width:.1f}" height="{size + 8}" style="animation-delay:{delay}s"/></clipPath>')
+        cursor_x = x + len(phrase) * advance + 5
+        body.append(f'<g class="phrase p{i}" style="animation-delay:{delay}s">'
+                    f'<g clip-path="url(#{key}{i})">{text(int(x), y, phrase, c["fg"], size)}</g>'
+                    f'<rect class="blink" x="{cursor_x:.1f}" y="{y - size + 3}" width="{size * 0.5:.0f}" '
+                    f'height="{size}" fill="{c["accent"]}"/></g>')
+    return "".join(defs), "".join(body)
+
+
+ABOUT_ROWS = (
+    ("EDUCATION", "B.Tech Computer Science and Engineering, 2026", "B.Tech CSE · 2026"),
+    ("COLLEGE", "MES College of Engineering, Kuttippuram", "MES College, Kerala"),
+    ("TARGET", "Applied AI · GenAI · ML engineering roles", "Applied AI · GenAI · ML"),
+    ("WORK MODE", "On-site · hybrid · remote, based in Kerala", "On-site · hybrid · remote"),
+)
+
+
+def about_svg(theme: str) -> str:
     c = THEMES[theme]
-    cycle = PHRASE_SECONDS * len(HEADLINE_PHRASES)
-    start_x = 24 + len(HEADLINE_PROMPT) * CHAR_WIDTH
-    style = (
-        f"text{{font-family:{MONO};font-size:22px}}"
-        f"@keyframes reveal{{0%{{transform:scaleX(0)}}13%{{transform:scaleX(1)}}28%{{transform:scaleX(1)}}"
-        f"31%{{transform:scaleX(0)}}100%{{transform:scaleX(0)}}}}"
-        f"@keyframes show{{0%,31%{{opacity:1}}31.1%,100%{{opacity:0}}}}"
-        f"@keyframes blink{{50%{{opacity:0}}}}"
-        f".mask{{transform-box:fill-box;transform-origin:left;"
-        f"animation:reveal {cycle}s steps(40,end) infinite}}"
-        f".phrase{{opacity:0;animation:show {cycle}s linear infinite}}"
-        f".cursor{{animation:blink 1s steps(1) infinite}}"
-        f"@media (prefers-reduced-motion:reduce){{.mask{{animation:none;transform:none}}"
-        f".phrase{{animation:none;opacity:0}}.p0{{opacity:1}}.cursor{{animation:none}}}}"
-    )
+    prompt = HEADLINE_PROMPT.rstrip()
+    desk_defs, desk_body = typing_parts(c, "d", 24 + (len(prompt) + 1) * 9.6, 82, 16)
+    mob_defs, mob_body = typing_parts(c, "m", 24, 118, 20)
+    alt = ("About Jasir Abdul Hameed: building LLM applications and ML services, measuring whether they "
+           "actually work, documenting what fails. " + ". ".join(f"{k.title()}: {v}" for k, v, _ in ABOUT_ROWS)
+           + ". Available immediately.")
+    status = "AVAILABLE IMMEDIATELY"
+    status_x = 598 - len(status) * 7.3
     parts = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="64" viewBox="0 0 900 64" '
-        f'role="img" aria-label="{escape(HEADLINE_PROMPT)}{escape(", ".join(HEADLINE_PHRASES))}">',
-        f'<title>{escape("; ".join(HEADLINE_PHRASES))}</title>',
-        f"<style>{style}</style><defs>",
+        '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="262" viewBox="0 0 620 262" '
+        f'role="img" aria-label="{escape(alt)}">',
+        f"<title>{escape(alt)}</title>",
+        CARD_STYLE.replace("</style>", TYPING_STYLE + "</style>"),
+        f"<defs>{desk_defs}{mob_defs}</defs>",
+        f'<rect x="1" y="1" width="618" height="260" rx="10" fill="{c["bg"]}" stroke="{c["border"]}"/>',
+        f'<path d="M20 43H600" stroke="{c["rule"]}"/>',
+        text(22, 30, ">", c["key"], 16, 700), text(43, 30, "ABOUT", c["fg"], 15, 700),
+        f'<circle class="pulse" cx="{status_x - 12:.0f}" cy="25" r="4" fill="{c["key"]}"/>'
+        f'<circle cx="{status_x - 12:.0f}" cy="25" r="4" fill="{c["key"]}"/>',
+        text(int(status_x), 30, status, c["accent"], 12, 700),
+        '<g class="desktop">',
+        text(24, 82, prompt, c["key"], 16, 700), desk_body,
+        f'<path d="M24 106H596" stroke="{c["rule"]}"/>',
     ]
-    for i, phrase in enumerate(HEADLINE_PHRASES):
-        width = len(phrase) * CHAR_WIDTH + 4
-        delay = i * PHRASE_SECONDS - FIRST_FRAME_OFFSET
-        parts.append(
-            f'<clipPath id="clip{i}"><rect class="mask" x="{start_x:.1f}" y="10" '
-            f'width="{width:.1f}" height="40" style="animation-delay:{delay}s"/></clipPath>'
-        )
-    parts.append("</defs>")
-    parts.append(text(24, 40, HEADLINE_PROMPT.rstrip(), c["key"], 22, 700))
-    for i, phrase in enumerate(HEADLINE_PHRASES):
-        delay = i * PHRASE_SECONDS - FIRST_FRAME_OFFSET
-        cursor_x = start_x + len(phrase) * CHAR_WIDTH + 6
-        parts.append(
-            f'<g class="phrase p{i}" style="animation-delay:{delay}s">'
-            f'<g clip-path="url(#clip{i})">{text(int(start_x), 40, phrase, c["fg"], 22)}</g>'
-            f'<rect class="cursor" x="{cursor_x:.1f}" y="22" width="12" height="24" fill="{c["accent"]}"/></g>'
-        )
-    parts.append("</svg>\n")
+    for r, (label, value, _) in enumerate(ABOUT_ROWS):
+        y = 140 + r * 32
+        parts.append(text(24, y, label, c["key"], 14, 700))
+        parts.append(text(150, y, value, c["fg"], 15))
+    parts += ['</g><g class="mobile">', text(24, 84, prompt, c["key"], 20, 700), mob_body,
+              f'<path d="M24 140H596" stroke="{c["rule"]}"/>']
+    for r, (label, _, short) in enumerate(ABOUT_ROWS):
+        y = 174 + r * 26
+        if r == 1:
+            continue
+        y = 174 + (r - (1 if r > 1 else 0)) * 30
+        parts.append(text(24, y, label, c["key"], 16, 700))
+        parts.append(text(176, y, short, c["fg"], 19))
+    parts.append("</g></svg>\n")
     return "".join(parts)
+
+
+BUTTONS = (
+    ("portfolio", "Portfolio", True), ("resume", "Resume", True), ("linkedin", "LinkedIn", False),
+    ("hugging_face", "Hugging Face", False), ("email", "Email", False),
+)
+
+
+def button_svg(theme: str, label: str, primary: bool) -> str:
+    c = THEMES[theme]
+    width = int(34 + len(label) * 9 + 30)
+    fill, ink, edge = (c["accent"], c["bg"], c["accent"]) if primary else (c["bar"], c["fg"], c["border"])
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="44" viewBox="0 0 {width} 44" '
+        f'role="img" aria-label="{escape(label)}"><title>{escape(label)}</title>'
+        f'<style>text{{font-family:{MONO}}}</style>'
+        f'<rect x="1" y="1" width="{width - 2}" height="42" rx="8" fill="{fill}" stroke="{edge}"/>'
+        f'{text(17, 28, label, ink, 15, 700)}{text(width - 26, 28, "↗", ink if primary else c["key"], 16, 700)}'
+        "</svg>\n"
+    )
 
 
 CARD_STYLE = (
@@ -647,7 +701,9 @@ def main() -> None:
     outputs = {}
     for theme in ("dark", "light"):
         outputs[f"{theme}_mode.svg"] = svg(theme, image_uri, width, height, counts)
-        outputs[f"assets/profile/headline_{theme}.svg"] = headline_svg(theme)
+        outputs[f"assets/profile/about_{theme}.svg"] = about_svg(theme)
+        for slug, label, primary in BUTTONS:
+            outputs[f"assets/profile/btn_{slug}_{theme}.svg"] = button_svg(theme, label, primary)
         outputs[f"assets/profile/principles_{theme}.svg"] = principles_svg(theme)
         outputs[f"assets/profile/roadmap_{theme}.svg"] = roadmap_svg(theme)
         for card in WORK:

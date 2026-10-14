@@ -48,5 +48,5 @@
   <a href="https://github.com/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_github_dark.svg"><img src="./assets/profile/connect_github_light.svg" width="143" alt="GitHub"></picture></a>
   <a href="https://www.linkedin.com/in/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_linkedin_dark.svg"><img src="./assets/profile/connect_linkedin_light.svg" width="143" alt="LinkedIn"></picture></a>
   <a href="https://huggingface.co/jasirjru"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_hugging_face_dark.svg"><img src="./assets/profile/connect_hugging_face_light.svg" width="143" alt="Hugging Face"></picture></a>
-  <a href="mailto:jrunull@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_email_dark.svg"><img src="./assets/profile/connect_email_light.svg" width="143" alt="Email"></picture></a>
+  <a href="mailto:jasirlvl@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/profile/connect_email_dark.svg"><img src="./assets/profile/connect_email_light.svg" width="143" alt="Email"></picture></a>
 </p>

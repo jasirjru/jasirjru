@@ -1,11 +1,11 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./dark_mode.svg">
-  <img src="./light_mode.svg" width="100%" alt="Jasir Abdul Hameed, Applied AI / ML Engineer in Kerala, India.">
+  <img src="./light_mode.svg" width="100%" alt="Jasir Abdul Hameed, AI Application Developer in Kerala, India.">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/about_dark.svg">
-  <img src="./assets/profile/about_light.svg" width="100%" alt="About: Applied AI engineer building LLM applications and ML services, measuring whether they actually work, and documenting what fails. Education: B.Tech Computer Science and Engineering, 2026, MES College of Engineering, Kuttippuram. Target: Applied AI, GenAI and ML engineering roles. Work mode: on-site, hybrid or remote, based in Kerala. Available immediately.">
+  <img src="./assets/profile/about_light.svg" width="100%" alt="About: AI application developer building LLM applications in Python, measuring whether they actually work, and documenting what fails. Education: B.Tech Computer Science and Engineering, 2026, MES College of Engineering, Kuttippuram. Target: AI developer, Python and software roles. Work mode: on-site, hybrid or remote, based in Kerala. Available immediately.">
 </picture>
 
 <p>
@@ -20,24 +20,10 @@
 
 <a href="https://www.jruva.in"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/work_jruva_dark.svg">
-  <img src="./assets/profile/work_jruva_light.svg" width="100%" alt="Jruva, public beta: document-QA assistant with hybrid retrieval and multi-provider LLM failover. Reproducible benchmark: dense MRR 0.91 vs BM25 0.81 on 100 queries.">
+  <img src="./assets/profile/work_jruva_light.svg" width="100%" alt="Jruva, live public beta at jruva.in: document-QA assistant with hybrid retrieval and failover across three LLM providers.">
 </picture></a>
 
 <sub>[Live beta](https://www.jruva.in) · [Benchmark, data and script](https://github.com/jasirjru/jruva-retrieval-eval) · application source private, walkthrough on request</sub>
-
-<a href="https://github.com/jasirjru/CustomerIQ"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/work_customeriq_dark.svg">
-  <img src="./assets/profile/work_customeriq_light.svg" width="100%" alt="CustomerIQ: churn-scoring inference API with strict Pydantic contracts and SHA-256 artifact checks. CI runs 124 tests plus Playwright, axe accessibility and container vulnerability scans.">
-</picture></a>
-
-<sub>[Source and CI](https://github.com/jasirjru/CustomerIQ) · [Live demo](https://customeriq-qd2v.onrender.com) (free tier, may take a minute to wake) · [Model card](https://github.com/jasirjru/CustomerIQ/blob/main/docs/MODEL_CARD.md)</sub>
-
-<a href="https://github.com/jasirjru/DomainTune#results"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/work_domaintune_dark.svg">
-  <img src="./assets/profile/work_domaintune_light.svg" width="100%" alt="DomainTune: QLoRA fine-tune of Qwen2.5-1.5B for support-ticket triage. Valid JSON rose from 22.5% to 92.5% on 40 gold examples; exact match is still 0%.">
-</picture></a>
-
-<sub>[Results and failure analysis](https://github.com/jasirjru/DomainTune#results) · [Model on Hugging Face](https://huggingface.co/jasirjru/DomainTune-Qwen2.5-1.5B-Triage) · [Project page](https://jasirjru.github.io/DomainTune/)</sub>
 
 <a href="https://www.spaceappschallenge.org/2024/find-a-team/darknova/"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/work_nasa_dark.svg">
@@ -55,12 +41,12 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/roadmap_dark.svg">
-  <img src="./assets/profile/roadmap_light.svg" width="100%" alt="Next: DomainTune v2, retrain with the stop-token fix and rebalanced labels; Jruva eval, add held-out queries that were not used for tuning.">
+  <img src="./assets/profile/roadmap_light.svg" width="100%" alt="Next: ML foundations, rebuilding a churn model from scratch with XGBoost; Jruva eval, running a 240-question held-out test on Jruva retrieval.">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/stack_dark.svg">
-  <img src="./assets/profile/stack_light.svg" width="100%" alt="Technical stack. AI and ML: Python, PyTorch, scikit-learn, Hugging Face. LLM: RAG, QLoRA with PEFT and TRL, evaluation. Build: FastAPI, Pydantic, Next.js, React. Data: Qdrant, PostgreSQL, BM25. Tools: Git, GitHub Actions, Docker, pytest.">
+  <img src="./assets/profile/stack_light.svg" width="100%" alt="Technical stack. AI and ML: Python, scikit-learn, pandas, Hugging Face. LLM: RAG, embeddings, LLM APIs, evaluation. Build: FastAPI, Pydantic, Next.js, React. Data: Qdrant, PostgreSQL, BM25. Tools: Git, GitHub Actions, Docker, pytest.">
 </picture>
 
 ### Contributions

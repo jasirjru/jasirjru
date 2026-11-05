@@ -114,10 +114,10 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
     parts = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="640" '
         'viewBox="0 0 620 640" role="img" '
-        f'aria-label="Jasir Abdul Hameed, Applied AI and ML Engineer in Kerala, India. '
+        f'aria-label="Jasir Abdul Hameed, AI Application Developer in Kerala, India. '
         f'{public_repos} public repositories, {stars} owned-repository stars, '
         f'{followers} followers.">',
-        '<title>Jasir Abdul Hameed — Applied AI / ML Engineer</title>',
+        '<title>Jasir Abdul Hameed — AI Application Developer</title>',
         '<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}'
         '.mobile{display:none}@media(max-width:480px){.desktop{display:none}'
         '.mobile{display:inline}}'
@@ -138,7 +138,7 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         '<g class="desktop">',
         text(230, 76, "jasirjru @ github", c["key"], 15, 700),
         text(230, 106, "Jasir Abdul Hameed", c["fg"], 22, 700),
-        text(230, 132, "Applied AI / ML Engineer", c["accent"], 16, 700),
+        text(230, 132, "AI Application Developer", c["accent"], 16, 700),
         text(230, 154, "Kerala, India", c["muted"], 14),
         f'<path d="M230 171H592" stroke="{c["rule"]}"/>',
         portrait(26, 145, 190, 220, c),
@@ -151,8 +151,8 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
     ]
     desktop_rows = (
         ("Languages", "Python · JavaScript · TypeScript", 203),
-        ("AI/ML", "PyTorch · scikit-learn", 239),
-        ("LLM", "RAG · LoRA / QLoRA", 295),
+        ("AI/ML", "scikit-learn · pandas", 239),
+        ("LLM", "RAG · embeddings · LLM APIs", 295),
         ("Backend", "FastAPI · Node.js", 349),
         ("Data", "Qdrant · PostgreSQL", 384),
         ("Tools", "Git · Docker · Actions", 419),
@@ -171,15 +171,15 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         portrait(26, 63, 145, 155, c),
         text(185, 83, "jasirjru @ github", c["key"], 18, 700),
         text(185, 111, "Jasir Abdul Hameed", c["fg"], 22, 700),
-        text(185, 139, "Applied AI / ML Engineer", c["accent"], 17, 700),
+        text(185, 139, "AI Application Developer", c["accent"], 17, 700),
         text(185, 165, "Kerala, India", c["muted"], 17),
         text(185, 189, "full-stack engineering", c["muted"], 14),
         f'<path d="M27 230H593" stroke="{c["rule"]}"/>',
     ))
     mobile_rows = (
         ("Languages", "Python · JavaScript · TypeScript", 260),
-        ("AI/ML", "PyTorch · scikit-learn", 291),
-        ("LLM", "RAG · LoRA / QLoRA", 354),
+        ("AI/ML", "scikit-learn · pandas", 291),
+        ("LLM", "RAG · embeddings · LLM APIs", 354),
         ("Backend", "FastAPI · Node.js", 417),
         ("Data", "Qdrant · PostgreSQL", 448),
         ("Tools", "Git · Docker · Actions", 479),
@@ -315,8 +315,8 @@ def stack_svg(theme: str) -> str:
     c = THEMES[theme]
     parts = panel_shell(theme, 304, "TECHNICAL STACK")
     rows = (
-        ("AI / ML", "Python · PyTorch · scikit-learn · Hugging Face", 78),
-        ("LLM", "RAG · QLoRA (PEFT, TRL) · evaluation", 124),
+        ("AI / ML", "Python · scikit-learn · pandas · Hugging Face", 78),
+        ("LLM", "RAG · embeddings · LLM APIs · evaluation", 124),
         ("BUILD", "FastAPI · Pydantic · Next.js · React", 170),
         ("DATA", "Qdrant · PostgreSQL · BM25", 216),
         ("TOOLS", "Git · GitHub Actions · Docker · pytest", 262),
@@ -331,8 +331,8 @@ def stack_svg(theme: str) -> str:
         ))
     parts.append('</g><g class="mobile">')
     mobile_rows = (
-        ("AI / ML", "Python · PyTorch · scikit-learn · HF", 72),
-        ("LLM", "RAG · QLoRA · evaluation", 119),
+        ("AI / ML", "Python · scikit-learn · pandas · HF", 72),
+        ("LLM", "RAG · embeddings · LLM APIs", 119),
         ("BUILD", "FastAPI · Next.js · React", 166),
         ("DATA", "Qdrant · PostgreSQL", 213),
         ("TOOLS", "Git · Actions · Docker", 260),
@@ -436,7 +436,7 @@ def typing_parts(c: dict[str, str], key: str, x: float, y: int, size: int) -> tu
 ABOUT_ROWS = (
     ("EDUCATION", "B.Tech Computer Science and Engineering, 2026", "B.Tech CSE · 2026"),
     ("COLLEGE", "MES College of Engineering, Kuttippuram", "MES College, Kerala"),
-    ("TARGET", "Applied AI · GenAI · ML engineering roles", "Applied AI · GenAI · ML"),
+    ("TARGET", "AI developer · Python · software roles", "AI · Python · software"),
     ("WORK MODE", "On-site · hybrid · remote, based in Kerala", "On-site · hybrid · remote"),
 )
 
@@ -523,28 +523,12 @@ WORK = (
     ("jruva", "01", "JRUVA", "PUBLIC BETA", True,
      ("Document-QA assistant with hybrid retrieval", "and multi-provider LLM failover."),
      "Document QA with hybrid retrieval.",
-     "0.91", "dense MRR vs 0.81 BM25",
-     ("bars", (("dense", 0.91), ("BM25", 0.81))),
+     "3", "LLM providers with failover",
+     ("ticks", ("Gemini", "Groq", "OpenRouter", "streaming")),
      "FASTAPI · NEXT.JS · QDRANT · BM25 + RRF",
-     "Jruva, public beta: document-QA assistant with hybrid retrieval and multi-provider LLM failover. "
-     "Reproducible benchmark: dense MRR 0.91 vs BM25 0.81 on 100 queries."),
-    ("customeriq", "02", "CUSTOMERIQ", "CI PASSING", True,
-     ("Churn-scoring inference API with strict", "Pydantic contracts and artifact checks."),
-     "Churn-scoring API with strict contracts.",
-     "124", "tests on every push",
-     ("ticks", ("pytest", "Playwright", "axe a11y", "CVE scan")),
-     "SCIKIT-LEARN · FASTAPI · DOCKER · ACTIONS",
-     "CustomerIQ: churn-scoring inference API with strict Pydantic contracts and SHA-256 artifact checks. "
-     "CI runs 124 tests plus Playwright, axe accessibility and container vulnerability scans."),
-    ("domaintune", "03", "DOMAINTUNE", "EVALUATED", False,
-     ("QLoRA fine-tune of Qwen2.5-1.5B that turns", "support tickets into five-field JSON."),
-     "QLoRA fine-tune: tickets to JSON.",
-     "92.5%", "valid JSON, up from 22.5%",
-     ("bars", (("base", 0.225), ("tuned", 0.925))),
-     "PEFT · TRL · QLORA · HUGGING FACE",
-     "DomainTune: QLoRA fine-tune of Qwen2.5-1.5B for support-ticket triage. "
-     "Valid JSON rose from 22.5% to 92.5% on 40 gold examples; exact match is still 0%."),
-    ("nasa", "04", "NASA SPACE APPS", "2024", False,
+     "Jruva, live public beta at jruva.in: document-QA assistant with hybrid retrieval "
+     "and failover across three LLM providers."),
+    ("nasa", "02", "NASA SPACE APPS", "2024", False,
      ("Website developer in six-member Team DarkNova", "for the Galactic Games challenge."),
      "Website developer, Team DarkNova.",
      "2 awards", "at the 2024 challenge",
@@ -659,8 +643,8 @@ def principles_svg(theme: str) -> str:
 
 
 ROADMAP = (
-    ("DOMAINTUNE v2", "Retrain with the stop-token fix and rebalanced labels."),
-    ("JRUVA EVAL", "Add held-out queries that were not used for tuning."),
+    ("ML FOUNDATIONS", "Rebuilding a churn model from scratch with XGBoost."),
+    ("JRUVA EVAL", "Running a 240-question held-out test on Jruva retrieval."),
 )
 
 

@@ -155,7 +155,7 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         ("LLM", "RAG · embeddings · LLM APIs", 295),
         ("Backend", "FastAPI · Node.js", 349),
         ("Data", "Qdrant · PostgreSQL", 384),
-        ("Tools", "Git · Docker · Actions", 419),
+        ("Tools", "Git · pytest · Actions", 419),
         ("Focus", "RAG · model evaluation", 454),
     )
     for key, value, y in desktop_rows:
@@ -182,7 +182,7 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         ("LLM", "RAG · embeddings · LLM APIs", 354),
         ("Backend", "FastAPI · Node.js", 417),
         ("Data", "Qdrant · PostgreSQL", 448),
-        ("Tools", "Git · Docker · Actions", 479),
+        ("Tools", "Git · pytest · Actions", 479),
         ("Focus", "RAG · model evaluation", 510),
     )
     for key, value, y in mobile_rows:
@@ -268,7 +268,7 @@ PROJECTS = (
     ("domaintune", "DomainTune", "LoRA/QLoRA training for support-ticket triage.",
      "Structured evaluation across model and data changes.", "PYTORCH  /  TRANSFORMERS  /  PEFT"),
     ("customeriq", "CustomerIQ", "Churn-scoring API with strict input contracts.",
-     "Explicit model limitations and serving boundaries.", "SCIKIT-LEARN  /  FASTAPI  /  DOCKER"),
+     "Explicit model limitations and serving boundaries.", "SCIKIT-LEARN  /  FASTAPI  /  PYTEST"),
     ("nexus", "NEXUS", "Evidence-grounded Ethereum intelligence.",
      "Anomaly and risk models with an inspectable API.", "SCIKIT-LEARN  /  FASTAPI  /  REACT  /  SQLITE"),
 )
@@ -319,7 +319,7 @@ def stack_svg(theme: str) -> str:
         ("LLM", "RAG · embeddings · LLM APIs · evaluation", 124),
         ("BUILD", "FastAPI · Pydantic · Next.js · React", 170),
         ("DATA", "Qdrant · PostgreSQL · BM25", 216),
-        ("TOOLS", "Git · GitHub Actions · Docker · pytest", 262),
+        ("TOOLS", "Git · GitHub Actions · pytest", 262),
     )
     parts.append('<title>Technical stack across AI, LLMs, web, data, and tools</title>')
     parts.append('<g class="desktop">')
@@ -335,7 +335,7 @@ def stack_svg(theme: str) -> str:
         ("LLM", "RAG · embeddings · LLM APIs", 119),
         ("BUILD", "FastAPI · Next.js · React", 166),
         ("DATA", "Qdrant · PostgreSQL", 213),
-        ("TOOLS", "Git · Actions · Docker", 260),
+        ("TOOLS", "Git · Actions · pytest", 260),
     )
     for label, value, y in mobile_rows:
         parts.extend((

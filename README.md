@@ -23,7 +23,7 @@
   <img src="./assets/profile/work_jruva_light.svg" width="100%" alt="Jruva, live public beta at jruva.in: document-QA assistant with hybrid retrieval and failover across three LLM providers.">
 </picture></a>
 
-<sub>[Live beta](https://www.jruva.in) · [Benchmark, data and script](https://github.com/jasirjru/jruva-retrieval-eval) · application source private, walkthrough on request</sub>
+<sub>[Live beta](https://www.jruva.in) · [Benchmark, data and script](https://github.com/jasirjru/jruva-retrieval-eval) · [Source code](https://github.com/jasirjru/jruva)</sub>
 
 <a href="https://www.spaceappschallenge.org/2024/find-a-team/darknova/"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/work_nasa_dark.svg">
@@ -46,7 +46,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/stack_dark.svg">
-  <img src="./assets/profile/stack_light.svg" width="100%" alt="Technical stack. AI and ML: Python, scikit-learn, pandas, Hugging Face. LLM: RAG, embeddings, LLM APIs, evaluation. Build: FastAPI, Pydantic, Next.js, React. Data: Qdrant, PostgreSQL, BM25. Tools: Git, GitHub Actions, Docker, pytest.">
+  <img src="./assets/profile/stack_light.svg" width="100%" alt="Technical stack. AI and ML: Python, scikit-learn, pandas, Hugging Face. LLM: RAG, embeddings, LLM APIs, evaluation. Build: FastAPI, Pydantic, Next.js, React. Data: Qdrant, PostgreSQL, BM25. Tools: Git, GitHub Actions, pytest.">
 </picture>
 
 ### Contributions

@@ -114,10 +114,10 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
     parts = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="640" '
         'viewBox="0 0 620 640" role="img" '
-        f'aria-label="Jasir Abdul Hameed, AI Application Developer in Kerala, India. '
+        f'aria-label="Jasir Abdul Hameed, AI/ML Engineer (Fresher) in Kerala, India. '
         f'{public_repos} public repositories, {stars} owned-repository stars, '
         f'{followers} followers.">',
-        '<title>Jasir Abdul Hameed — AI Application Developer</title>',
+        '<title>Jasir Abdul Hameed — AI/ML Engineer (Fresher)</title>',
         '<style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}'
         '.mobile{display:none}@media(max-width:480px){.desktop{display:none}'
         '.mobile{display:inline}}'
@@ -138,7 +138,7 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         '<g class="desktop">',
         text(230, 76, "jasirjru @ github", c["key"], 15, 700),
         text(230, 106, "Jasir Abdul Hameed", c["fg"], 22, 700),
-        text(230, 132, "AI Application Developer", c["accent"], 16, 700),
+        text(230, 132, "AI/ML Engineer (Fresher)", c["accent"], 16, 700),
         text(230, 154, "Kerala, India", c["muted"], 14),
         f'<path d="M230 171H592" stroke="{c["rule"]}"/>',
         portrait(26, 145, 190, 220, c),
@@ -150,10 +150,10 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         f'<rect x="127" y="450" width="44" height="5" fill="{c["fg"]}"/>',
     ]
     desktop_rows = (
-        ("Languages", "Python · JavaScript · TypeScript", 203),
-        ("AI/ML", "scikit-learn · pandas", 239),
+        ("Languages", "Python · SQL · JavaScript", 203),
+        ("AI/ML", "retrieval · NumPy", 239),
         ("LLM", "RAG · embeddings · LLM APIs", 295),
-        ("Backend", "FastAPI · Node.js", 349),
+        ("Backend", "FastAPI · REST · SSE", 349),
         ("Data", "Qdrant · PostgreSQL", 384),
         ("Tools", "Git · pytest · Actions", 419),
         ("Focus", "RAG · model evaluation", 454),
@@ -162,7 +162,7 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         parts.extend((text(230, y, key, c["key"], 15, 700),
                       text(339, y, value, c["fg"], 14)))
     parts.extend((
-        text(339, 259, "Hugging Face", c["fg"], 14),
+        text(339, 259, "MRR · Hit@k", c["fg"], 14),
         text(339, 315, "LLM evaluation", c["fg"], 14),
     ))
     parts.extend(metric_block(c, counts, mobile=False))
@@ -171,16 +171,16 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         portrait(26, 63, 145, 155, c),
         text(185, 83, "jasirjru @ github", c["key"], 18, 700),
         text(185, 111, "Jasir Abdul Hameed", c["fg"], 22, 700),
-        text(185, 139, "AI Application Developer", c["accent"], 17, 700),
+        text(185, 139, "AI/ML Engineer (Fresher)", c["accent"], 17, 700),
         text(185, 165, "Kerala, India", c["muted"], 17),
         text(185, 189, "full-stack engineering", c["muted"], 14),
         f'<path d="M27 230H593" stroke="{c["rule"]}"/>',
     ))
     mobile_rows = (
-        ("Languages", "Python · JavaScript · TypeScript", 260),
-        ("AI/ML", "scikit-learn · pandas", 291),
+        ("Languages", "Python · SQL · JavaScript", 260),
+        ("AI/ML", "retrieval · NumPy", 291),
         ("LLM", "RAG · embeddings · LLM APIs", 354),
-        ("Backend", "FastAPI · Node.js", 417),
+        ("Backend", "FastAPI · REST · SSE", 417),
         ("Data", "Qdrant · PostgreSQL", 448),
         ("Tools", "Git · pytest · Actions", 479),
         ("Focus", "RAG · model evaluation", 510),
@@ -189,7 +189,7 @@ def svg(theme: str, image_uri: str, image_width: int, image_height: int,
         parts.extend((text(28, y, key, c["key"], 19, 700),
                       text(175, y, value, c["fg"], 19)))
     parts.extend((
-        text(175, 313, "Hugging Face", c["fg"], 19),
+        text(175, 313, "MRR · Hit@k", c["fg"], 19),
         text(175, 376, "LLM evaluation", c["fg"], 19),
         *metric_block(c, counts, mobile=True),
         '</g></svg>\n',
@@ -315,7 +315,7 @@ def stack_svg(theme: str) -> str:
     c = THEMES[theme]
     parts = panel_shell(theme, 304, "TECHNICAL STACK")
     rows = (
-        ("AI / ML", "Python · scikit-learn · pandas · Hugging Face", 78),
+        ("AI / ML", "Python · NumPy · retrieval evaluation", 78),
         ("LLM", "RAG · embeddings · LLM APIs · evaluation", 124),
         ("BUILD", "FastAPI · Pydantic · Next.js · React", 170),
         ("DATA", "Qdrant · PostgreSQL · BM25", 216),
@@ -331,7 +331,7 @@ def stack_svg(theme: str) -> str:
         ))
     parts.append('</g><g class="mobile">')
     mobile_rows = (
-        ("AI / ML", "Python · scikit-learn · pandas · HF", 72),
+        ("AI / ML", "Python · NumPy · retrieval eval", 72),
         ("LLM", "RAG · embeddings · LLM APIs", 119),
         ("BUILD", "FastAPI · Next.js · React", 166),
         ("DATA", "Qdrant · PostgreSQL", 213),
@@ -434,7 +434,7 @@ def typing_parts(c: dict[str, str], key: str, x: float, y: int, size: int) -> tu
 
 
 ABOUT_ROWS = (
-    ("EDUCATION", "B.Tech Computer Science and Engineering, 2026", "B.Tech CSE · 2026"),
+    ("EDUCATION", "B.Tech CSE, 2022-2026 · one result awaited", "B.Tech · result due"),
     ("COLLEGE", "MES College of Engineering, Kuttippuram", "MES College, Kerala"),
     ("TARGET", "AI developer · Python · software roles", "AI · Python · software"),
     ("WORK MODE", "On-site · hybrid · remote, based in Kerala", "On-site · hybrid · remote"),

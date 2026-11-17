@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./dark_mode.svg">
-  <img src="./light_mode.svg" width="100%" alt="Jasir Abdul Hameed, AI Application Developer in Kerala, India.">
+  <img src="./light_mode.svg" width="100%" alt="Jasir Abdul Hameed, AI/ML Engineer (Fresher) in Kerala, India.">
 </picture>
 
 <picture>
@@ -46,7 +46,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/profile/stack_dark.svg">
-  <img src="./assets/profile/stack_light.svg" width="100%" alt="Technical stack. AI and ML: Python, scikit-learn, pandas, Hugging Face. LLM: RAG, embeddings, LLM APIs, evaluation. Build: FastAPI, Pydantic, Next.js, React. Data: Qdrant, PostgreSQL, BM25. Tools: Git, GitHub Actions, pytest.">
+  <img src="./assets/profile/stack_light.svg" width="100%" alt="Technical stack. AI and ML: Python, NumPy, retrieval evaluation. LLM: RAG, embeddings, LLM APIs, evaluation. Build: FastAPI, Pydantic, Next.js, React. Data: Qdrant, PostgreSQL, BM25. Tools: Git, GitHub Actions, pytest.">
 </picture>
 
 ### Contributions
